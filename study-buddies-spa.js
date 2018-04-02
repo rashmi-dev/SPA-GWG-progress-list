@@ -387,20 +387,36 @@ const $projectBar = $("[data-panel-ref='projects']");
 // update progress when checkbox status changes
 $("input[type=checkbox]").change(function() {
   const category = getCheckboxCategory($(this))
-  const bar = $("[data-panel-ref='"+category+"']");
+  const bar = getBar(category);
+ 
   updateBar(bar);
-  updateBar($overallBar)
+  // updateBar($overallBar)
 });
 
 
 // return sanitized category values
 function getCheckboxCategory(checkbox) {
-  console.log(checkbox.attr("data-category-type"));
+
   if (checkbox.attr("data-category-type") ===  "project") {
     return "projects"
   }
   else {
     return checkbox.attr("data-category-type")
+  }
+}
+
+function getBar(category) {
+  switch(category){
+    case "html":
+      return $htmlBar;
+    case "css":
+      return $cssBar;
+    case "javascript":
+      return $javascriptBar;
+    case "jquery":
+      return $jqueryBar;
+    case "projects":
+      return $projectBar;
   }
 }
 
@@ -420,10 +436,11 @@ function updateBars() {
     updateBar(bars[i]);
   }
 }
-updateBars();
+// updateBars();
 
 
 function updateBar(bar) {
+  console.log(bar);
   const progress = getProgress();
   let width = 0; // bar progress
   const time = setInterval(fillBar, 0); // set animation speed
@@ -440,8 +457,9 @@ function updateBar(bar) {
     else {
       width++;
       bar.css("width", width + "%") ; // increase bar
-      bar.text(percent.toFixed(1) + "%")
+    
     }
+    bar.text(percent.toFixed(1) + "%")
   }
 }
 
