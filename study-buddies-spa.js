@@ -486,6 +486,7 @@ function getPercent(bar,progress) {
     return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
   }
 }
+
 //Testing the info button//
 $("<i class='fas fa-info-circle'></i>").prependTo(".user-avatar");
 $(".fa-info-circle").css({
@@ -499,5 +500,8 @@ $(".fa-info-circle").css({
   'cursor':'pointer'});
 
 $(".fa-info-circle").click(function() {
-  alert ('Hello!\b\f\n This is a Single Page Application created by Study Buddies for "Grow With Google Scholarship 2018 Front-End Web Dev" Student Projects website.\f\n It allows you to track your progress with the Course and have it saved locally on your machine.\f\n Project participants:\n (http://tiny.cc/SB-teamRoster)\f\n Known issues:\n *\n *\n *\n Copyright © 2018 Study Buddies. All Rights Reserved.')
+  $("#info-modal").addClass("active");
+});
+$("[data-close=modal]").on("click", function() {
+  $(this).parents(".modal").removeClass("active");
 });
