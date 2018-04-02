@@ -214,22 +214,22 @@ $(function () {
     }
   });
   $(".login-area form").addClass("no-display");
-  if(sessionStorage.getItem("isLoggedIn")==="yes"){
+  if(localStorage.getItem("isLoggedIn")==="yes"){
             $(".login-area form").addClass("no-display");
             $(".study-alt").addClass("no-display");
             $("div.login-area").removeClass("display-flex");
-            $(".user-info .user-name").html(sessionStorage.getItem("username"));
-            $(".user-info .user-email").html(sessionStorage.getItem("email"));
+            $(".user-info .user-name").html(localStorage.getItem("username"));
+            $(".user-info .user-email").html(localStorage.getItem("email"));
             $("main").addClass("display-flex");
             $(".user-avatar, .logo").removeClass("no-display");
-            if(sessionStorage.getItem("theme") === "lighter") {
+            if(localStorage.getItem("theme") === "lighter") {
               $("body").addClass("lighter");
               $(".tabs-nav li a.active").click();
             } else {
               $("body").removeClass("lighter");
               $(".tabs-nav li a.active").click();
             }
-            $("#theme-selector").val(sessionStorage.getItem("theme"));
+            $("#theme-selector").val(localStorage.getItem("theme"));
 
     }
     else{
@@ -315,16 +315,16 @@ $(document).on("click", function() {
 //on click event session start
 $(".login-area form").submit(function(e){
     e.preventDefault();
-    sessionStorage.setItem("username",$("#user-name").val());
-    sessionStorage.setItem("email",$("#user-email").val());
-    sessionStorage.setItem("theme","darker");
+    localStorage.setItem("username",$("#user-name").val());
+    localStorage.setItem("email",$("#user-email").val());
+    localStorage.setItem("theme","darker");
     //For page refresh storing the page name
-    sessionStorage.setItem("isLoggedIn","yes");
+    localStorage.setItem("isLoggedIn","yes");
 
     $(".login-area form").addClass("no-display");//added by rashmi
     $(".study-alt").addClass("no-display");
-    $(".user-info .user-name").html(sessionStorage.getItem("username"));
-    $(".user-info .user-email").html(sessionStorage.getItem("email"));
+    $(".user-info .user-name").html(localStorage.getItem("username"));
+    $(".user-info .user-email").html(localStorage.getItem("email"));
     $(".login-area").removeClass("display-flex");
     $("main").addClass("display-flex");
     $(".user-avatar, .logo").removeClass("no-display");
@@ -337,10 +337,10 @@ $(".dropdown li:last-child").on("click", function(){
     $("main").removeClass("display-flex");
     $(".user-avatar, .logo").addClass("no-display");
 
-    sessionStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("isLoggedIn");
     //remove the user info on logout
-    sessionStorage.removeItem("name");
-    sessionStorage.removeItem("email");
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
 
 });
 
@@ -353,9 +353,9 @@ $("[data-toggle=modal]").on("click", function(){
 });
 $("#changer-accept").on("click", function(e) {
   e.preventDefault();
-  sessionStorage.setItem("username",$("#user-name-changer").val());
-  sessionStorage.setItem("email",$("#user-email-changer").val());
-  sessionStorage.setItem("theme",$("#theme-selector").val());
+  localStorage.setItem("username",$("#user-name-changer").val());
+  localStorage.setItem("email",$("#user-email-changer").val());
+  localStorage.setItem("theme",$("#theme-selector").val());
   $(".user-info .user-name").html($("#user-name-changer").val());
   $(".user-info .user-email").html($("#user-email-changer").val());
   if($("#theme-selector").val() === "lighter") {

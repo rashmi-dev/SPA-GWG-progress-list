@@ -665,6 +665,10 @@ header {
   background-color: #0280a4;
   min-height: 90px;
 }
+.header-text{
+  color: #fff;
+}
+
 main, .tab-panel .panels, .login-area  {
   flex: 1;
   overflow: auto;
@@ -694,6 +698,7 @@ label[for=progress-bar] {
 }
 .muted {
   color: #999;
+  display: none;
 }
 .tab-panel {
   height: 100%;
@@ -708,8 +713,8 @@ footer {
   line-height: 1.1em;
   font-size: 11px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
 }
+
 .foot-note .text-left {
   text-align: right;
 }
@@ -736,6 +741,7 @@ footer {
   font-size: 45px;
   top: -22px;
 }
+
 .social-links {
   list-style: none;
   font-size: 22px;
@@ -745,19 +751,21 @@ footer {
   margin-left: .5rem;
 }
 .social-links a {
-  color: inherit;
+  color: #fff;
 }
 .social-links a:hover {
-  color: white;
+  color: #000;
   cursor: pointer;
 }
+
+.copyright {
+  color: #fff;
+}
 .copyright:hover {
-  color: white;
+  color: #000;
   cursor: default;
 }
-.copyright {
-  color: #333;
-}
+
 .text-left:hover, .text-right:hover {
   color: #333;
   font-size: 12px;
@@ -1028,7 +1036,6 @@ input[type=text]:focus, input[type=email]:focus {
 .login-area a {
   text-align: center;
   padding: 10px;
-  text-transform: capitalize;
 }
 .login-area {
   display: none;
