@@ -9,6 +9,9 @@ a {
 a:hover {
   color: #02b7e9;
 }
+p {
+  padding-bottom: 0.75rem;
+}
 /* Pading and Margin */
 .padding-0 {
   padding: 0;
@@ -722,6 +725,9 @@ footer {
   color: white;
   width: 200px;
 }
+.foot-note p {
+  padding: 0;
+}
 .foot-note .icon {
   position: relative;
   font-size: 40px;
@@ -1316,6 +1322,7 @@ input[type=text]:focus, input[type=email]:focus {
   background-color: #02b7e9;
   text-align: center;
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  font-size: 1.2rem;
 }
 .modal-footer {
   text-align: center;
