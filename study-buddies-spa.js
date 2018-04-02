@@ -486,3 +486,22 @@ function getPercent(bar,progress) {
     return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
   }
 }
+
+//Testing the info button//
+$("<i class='fas fa-info-circle'></i>").prependTo(".user-avatar");
+$(".fa-info-circle").css({
+  'position': 'absolute',
+  'color':'white',
+  'list-style':'none',
+  'font-size': '25px',
+  'margin-left': '75px',
+  'margin-top': '-4px',
+  'display': 'flex',
+  'cursor':'pointer'});
+
+$(".fa-info-circle").click(function() {
+  $("#info-modal").addClass("active");
+});
+$("[data-close=modal]").on("click", function() {
+  $(this).parents(".modal").removeClass("active");
+});
