@@ -1059,9 +1059,6 @@ input[type=text]:focus, input[type=email]:focus {
 }
 
 /*Light Theme Colors---------------------------------*/
-.lighter header {
-  background-color: #69B0DE;
-}
 .lighter .tabs-nav a  {
  padding: 0.75rem;
  display: inline-block;
@@ -1174,7 +1171,7 @@ input[type=text]:focus, input[type=email]:focus {
 }
 .lighter header  {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
- background-color: #0280a4;
+ background-color: #69B0DE;
   min-height: 90px;
 }
 .lighter .user-avatar img,  {
