@@ -89,7 +89,8 @@ SBP.UI = {
 
     refreshPage: function () {
         try {
-            // Update progress bars and other UI changes.
+            //SBP.UI.bindPage();
+            //SBP.Events.bindEvents();
         }
         catch (ex) {
             console.log(ex.message);
@@ -190,21 +191,18 @@ SBP.Helpers = {
 };
 
 $(function () {
-    try {
-        SBP.UI.bindPage();
-        SBP.Events.bindEvents();
-    }
-    catch (ex) {
-        console.log(ex.message);
-    }
-});
-
-
-
 
 
 /*Angel & Steve*/
 $(function () {
+  try{
+
+      SBP.UI.bindPage();
+      SBP.Events.bindEvents();
+  }
+  catch (ex) {
+      console.log(ex.message);
+  }
   $(".tabs-nav li:first-child a").click();
   $(".lesson-title").each(function() {
     if($(this).find(".exercise-list input").length === $(this).find(".exercise-list input:checked").length) {
@@ -215,6 +213,35 @@ $(function () {
       $(this).find(".check-box-label .muted").removeClass("active");
     }
   });
+  $(".login-area form").addClass("no-display");
+  if(localStorage.getItem("isLoggedIn")==="yes"){
+            $(".login-area form").addClass("no-display");
+            $(".study-alt").addClass("no-display");
+            $("div.login-area").removeClass("display-flex");
+            $(".user-info .user-name").html(localStorage.getItem("username"));
+            $(".user-info .user-email").html(localStorage.getItem("email"));
+            $("main").addClass("display-flex");
+            $(".user-avatar, .logo").removeClass("no-display");
+            if(localStorage.getItem("theme") === "lighter") {
+              $("body").addClass("lighter");
+              $(".tabs-nav li a.active").click();
+            } else {
+              $("body").removeClass("lighter");
+              $(".tabs-nav li a.active").click();
+            }
+            $("#theme-selector").val(localStorage.getItem("theme"));
+
+    }
+    else{
+            $(".login-area form").removeClass("no-display");
+            $(".study-alt").removeClass("no-display");
+            $(".login-area").addClass("display-flex");
+            $("main").removeClass("display-flex");
+            $(".user-avatar, .logo").addClass("no-display");
+
+    }
+
+});
 });
 
 
@@ -285,28 +312,67 @@ $(document).on("click", function() {
   $(".user-avatar img.zoom").removeClass("zoom");
 });
 
+//on click event session start
 $(".login-area form").submit(function(e){
-  e.preventDefault();
-  $(".user-info .user-name").html($("#user-name").val());
-  $(".user-info .user-email").html($("#user-email").val());
-  $(".login-area").removeClass("display-flex");
-  $("main").addClass("display-flex");
-  $(".user-avatar, .logo").removeClass("no-display");
-  $(".study-alt").addClass("no-display");
+    e.preventDefault();
+    localStorage.setItem("username",$("#user-name").val());
+    localStorage.setItem("email",$("#user-email").val());
+    localStorage.setItem("theme","darker");
+    //For page refresh storing the page name
+    localStorage.setItem("isLoggedIn","yes");
+
+    $(".login-area form").addClass("no-display");//added by rashmi
+    $(".study-alt").addClass("no-display");
+    $(".user-info .user-name").html(localStorage.getItem("username"));
+    $(".user-info .user-email").html(localStorage.getItem("email"));
+    $(".login-area").removeClass("display-flex");
+    $("main").addClass("display-flex");
+    $(".user-avatar, .logo").removeClass("no-display");
 });
+//logout on click event
 $(".dropdown li:last-child").on("click", function(){
-  $("#user-name").val("");
-  $("#user-email").val("");
-  $(".user-info .user-name").html("");
-  $(".user-info .user-email").html("");
-  $(".login-area").addClass("display-flex");
-  $("main").removeClass("display-flex");
-  $(".user-avatar, .logo").addClass("no-display");
-  $(".study-alt").removeClass("no-display");
+    $(".login-area form").removeClass("no-display");
+    $(".study-alt").removeClass("no-display");
+    $(".login-area").addClass("display-flex");
+    $("main").removeClass("display-flex");
+    $(".user-avatar, .logo").addClass("no-display");
+
+    localStorage.removeItem("isLoggedIn");
+    //remove the user info on logout
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
+
 });
 
-
-
+//  Modal
+$("[data-toggle=modal]").on("click", function(){
+  let refElement = "#" + $(this).attr("data-toggle-modal");
+  $("#user-name-changer").val($(".user-info .user-name").html());
+  $("#user-email-changer").val($(".user-info .user-email").html());
+  $(refElement).addClass("active");
+});
+$("#changer-accept").on("click", function(e) {
+  e.preventDefault();
+  localStorage.setItem("username",$("#user-name-changer").val());
+  localStorage.setItem("email",$("#user-email-changer").val());
+  localStorage.setItem("theme",$("#theme-selector").val());
+  $(".user-info .user-name").html($("#user-name-changer").val());
+  $(".user-info .user-email").html($("#user-email-changer").val());
+  if($("#theme-selector").val() === "lighter") {
+    $("body").addClass("lighter");
+    $(".tabs-nav li a.active").click();
+  } else {
+    $("body").removeClass("lighter");
+    $(".tabs-nav li a.active").click();
+  }
+  $(".modal").removeClass("active");
+});
+$("#changer-discard").on("click", function(e) {
+  e.preventDefault();
+  $(".modal").removeClass("active");
+  $("#user-name-changer").val($(".user-info .user-name").html());
+  $("#user-email-changer").val($(".user-info .user-email").html());
+});
 
 
 // bar selectors

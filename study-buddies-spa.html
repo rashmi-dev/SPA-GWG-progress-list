@@ -3,19 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>Track Your Progress</title>
-    <link rel="shortcut icon" href="https://s14.postimg.org/q56asjb1t/title_icon_copy.png"/>
+<!--coffee cup icon:  updated 01 april -->
+    <link rel="shortcut icon" href="https://s14.postimg.org/q56asjb1t/title_icon_copy.png">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="study-buddies-spa.css" />
+    <link rel="stylesheet" href="study-buddies-spa.css">
 
 </head>
 <body id="main-container" class="display-flex flex-col">
   <header class="display-flex flex-justify-content-between flex-align-items-center">
-    <div class="study-alt">Study Buddies</div>
+    <div class="study-alt header-text">Study Buddies</div>
     <figure class="no-display logo margin-x-5 margin-y-2">
-      <img src="https://s26.postimg.org/53eo07hvt/logo.png" alt="Study Buddies Logo">
+      <img src="https://s18.postimg.org/5z75xb1d5/study_buddies.png" alt="Study Buddies Logo">
     </figure>
     <figure class="no-display user-avatar margin-x-5">
       <img src="https://s26.postimg.org/cw5bs6g55/user.jpg" alt="(User Name) Avatar"  data-toggle="dropdown" data-toggle-ref="dropdown">
@@ -27,226 +28,226 @@
         </div>
         <div class="user-avatar-space"></div>
       </li>
-      <li><a href="#">Change Account Info</a></li>
+      <li><a data-toggle-modal="changer-modal" data-toggle="modal">Change Account Info</a></li>
       <li><a href="#">Logout</a></li>
     </ul>
     </figure>
   </header>
-  <div class="login-area display-flex flex-justify-content-around">
+  <div class="login-area no-display flex-justify-content-around">
       <form class="margin-y-auto">
-        <label for="user-name">User Name</label>
-        <input type="text" name="user-name" id="user-name" required>
+        <label for="user-name">Username</label>
+        <input type="text" name="user-name" id="user-name" title="Please enter your username" placeholder="Username" required>
         <label for="user-name">Email Address</label>
-        <input type="email" name="user-email" id="user-email" required>
-        <a href="#">i have a previous session!</a>
+        <input type="email" name="user-email" id="user-email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter a valid email address" placeholder="example@site.com" required>
+        <a href="#">I have a previous session!</a>
         <input type="submit" value="Start Session" class="button">
       </form>
     </div>
     <main class="no-display padding-2">
-      <section class="col-width-3 padding-3">
+      <section class="col-width-3 padding-3 progress-panel">
         <div class="panels active">
-          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fab fa-html5 margin-right-2"></i> HTML <span class="muted margin-left-auto">0/0 Completed (0%)</span> </label>
+          <label  class="display-flex flex-align-items-center"><i class="fab fa-html5 margin-right-2"></i> HTML <span class="muted margin-left-auto" id="html-span">0/0 Completed (0%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="html" class="progress" style="width: 0%"></div>
           </div>
-          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fab fa-css3-alt margin-right-2"></i> CSS <span class="muted margin-left-auto">0/0 Completed (0%)</span> </label>
+          <label  class="display-flex flex-align-items-center"><i class="fab fa-css3-alt margin-right-2"></i> CSS <span class="muted margin-left-auto" id="css-span">0/0 Completed (0%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="css" class="progress" style="width: 0%"></div>
           </div>
-          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fab fa-js-square margin-right-2"></i> JavaScript <span class="muted margin-left-auto">0/0 Completed (0%)</span> </label>
+          <label  class="display-flex flex-align-items-center"><i class="fab fa-js-square margin-right-2"></i> JavaScript <span class="muted margin-left-auto" id="javascript-span">0/0 Completed (0%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="javascript" class="progress" style="width: 0%"></div>
           </div>
-          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fab fa-html5 margin-right-2"></i> JQuery <span class="muted margin-left-auto">0/0 Completed (0%)</span> </label>
+          <label  class="display-flex flex-align-items-center"><i class="fab fa-html5 margin-right-2"></i> jQuery <span class="muted margin-left-auto" id="jquery-span">0/0 Completed (0%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="jquery" class="progress" style="width: 0%"></div>
           </div>
-          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fas fa-folder-open margin-right-2"></i> Projects <span class="muted margin-left-auto">0/0 Completed (0%)</span> </label>
+          <label  class="display-flex flex-align-items-center"><i class="fas fa-folder-open margin-right-2"></i> Projects <span class="muted margin-left-auto" id="project-span">0/0 Completed (0%)</span> </label>
           <div class="progress-bar">
             <div data-panel-ref="projects" class="progress" style="width: 0%"></div>
           </div>
           <div class="divider margin-bottom-3 margin-top-4"></div>
-          <label for="progress-bar" class="display-flex flex-align-items-center"><i class="fas fa-chart-area margin-right-2"></i> Overall Progress <span class="muted margin-left-auto">0/0 Completed (0%)</span> </label>
+          <label  class="display-flex flex-align-items-center"><i class="fas fa-chart-area margin-right-2"></i> Overall Progress <span class="muted margin-left-auto" id="progress-span">0/0 Completed (0%)</span> </label>
           <div class="progress-bar">
             <div class="progress default" style="width: 0%"></div>
           </div>
         </div>
       </section>
-      <section class="col-width-7 padding-3">
+      <section class="col-width-7 padding-3 task-list">
         <div class="display-flex flex-col tab-panel" >
           <ul class="display-flex tabs-nav flex-align-items-end">
             <li><a class="active" data-toggle="html" data-class-ref="waiting">HTML</a></li>
             <li><a data-toggle="css" data-class-ref="primary">CSS</a></li>
             <li><a data-toggle="javascript" data-class-ref="error">JavaScript</a></li>
-            <li><a data-toggle="jquery" data-class-ref="success">JQuery</a></li>
+            <li><a data-toggle="jquery" data-class-ref="success">jQuery</a></li>
             <li><a data-toggle="projects" data-class-ref="secondary">Projects</a></li>
           </ul>
 
-          <div class="panels active" id="panel-html" data-style-ref="waiting">
-            <ul class="course-list">
+           <div class="panels active" id="panel-html" data-style-ref="waiting">
+           <ul class="course-list">
               <li class="lesson-title" id="lessonOne">
     <label class="check-box-label html" for="lesson1">
-          <input id="lesson1" class="check-box" type="checkbox" name="lesson1" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="lesson1">
-          Lesson 1 - Welcome! Important Details on Your Scholarship</label> <span class="muted waiting">Lesson Completed!</span></label><a class="button" data-button-class="waiting" data-toggle="lesson1List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
+          <input id="lesson1" class="check-box" type="checkbox" name="lesson1" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+          Lesson 1 - Welcome! Important Details on Your Scholarship</span> <span class="muted waiting">Lesson Completed!</span></label><a class="button" data-button-class="waiting" data-toggle="lesson1List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
           <ul id="lesson1List" class="exercise-list active">
             <li class="lesson-exercise">
               <label class="check-box-label html" for="1-1">
-              <input id="1-1" class="check-box" type="checkbox" name="1-1" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="1-1">
-    1. Scholarship Overview</label> </label>
+              <input id="1-1" class="check-box" type="checkbox" name="1-1" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+    1. Scholarship Overview</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="1-2">
-              <input id="1-2" class="check-box" type="checkbox" name="1-2" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="1-2">
-              2. Accessing the Discussion Forums</label> </label>
+              <input id="1-2" class="check-box" type="checkbox" name="1-2" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              2. Accessing the Discussion Forums</span> </label>
             </li>
             <li class="lesson-exercise">
               <label class="check-box-label html" for="1-3">
-              <input id="1-3" class="check-box" type="checkbox" name="1-3" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="1-3">
-    3. Slack</label> </label>
+              <input id="1-3" class="check-box" type="checkbox" name="1-3" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+    3. Slack</span> </label>
             </li>
           </ul>
         </li>
         <li class="lesson-title">
           <label class="check-box-label html" for="lesson2">
-    <input id="lesson2" class="check-box" type="checkbox" name="lesson2" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="lesson2">
-          Lesson 2 - HTML Syntax</label> <span class="muted waiting">Lesson Completed!</span> </label> <a class="button waiting" data-button-class="waiting" data-toggle="lesson2List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+    <input id="lesson2" class="check-box" type="checkbox" name="lesson2" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+          Lesson 2 - HTML Syntax</span> <span class="muted waiting">Lesson Completed!</span> </label> <a class="button waiting" data-button-class="waiting" data-toggle="lesson2List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
           <ul id="lesson2List" class="exercise-list">
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-1">
-              <input id="2-1" class="check-box" type="checkbox" name="2-1" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-1">
-              1. Lesson Introduction</label> </label>
+              <input id="2-1" class="check-box" type="checkbox" name="2-1" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              1. Lesson Introduction</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-2">
-              <input id="2-2" class="check-box" type="checkbox" name="2-2" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-2">
-              2. HTML Structure Part 1</label> </label>
+              <input id="2-2" class="check-box" type="checkbox" name="2-2" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              2. HTML Structure Part 1</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-3">
-              <input id="2-3" class="check-box" type="checkbox" name="2-3" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-3">
-              3. Quiz: Make Your First Element</label> </label>
+              <input id="2-3" class="check-box" type="checkbox" name="2-3" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              3. Quiz: Make Your First Element</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-4">
-              <input id="2-4" class="check-box" type="checkbox" name="2-4" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-4">
-              4. Environments</label> </label>
+              <input id="2-4" class="check-box" type="checkbox" name="2-4" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              4. Environments</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-5">
-              <input id="2-5" class="check-box" type="checkbox" name="2-5" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-5">
-              5. Text Editors</label> </label>
+              <input id="2-5" class="check-box" type="checkbox" name="2-5" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              5. Text Editors</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-6">
-              <input id="2-6" class="check-box" type="checkbox" name="2-6" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-6">
-              6. Browsers</label> </label>
+              <input id="2-6" class="check-box" type="checkbox" name="2-6" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              6. Browsers</span> </label>
             </li>
             <li class="lesson-exercise">
               <label class="check-box-label html" for="2-7">
-              <input id="2-7" class="check-box" type="checkbox" name="2-7" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-7">
-    7. Workflow</label> </label>
+              <input id="2-7" class="check-box" type="checkbox" name="2-7" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+    7. Workflow</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-8">
-              <input id="2-8" class="check-box" type="checkbox" name="2-8" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-8">
-              8. Trees</label> </label>
+              <input id="2-8" class="check-box" type="checkbox" name="2-8" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              8. Trees</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-9">
-              <input id="2-9" class="check-box" type="checkbox" name="2-9" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-9">
-              9. HTML and Trees</label> </label>
+              <input id="2-9" class="check-box" type="checkbox" name="2-9" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              9. HTML and Trees</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-10">
-              <input id="2-10" class="check-box" type="checkbox" name="2-10" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-10">
-              10. Quiz: Spot the Bug</label> </label>
+              <input id="2-10" class="check-box" type="checkbox" name="2-10" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              10. Quiz: Spot the Bug</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-11">
-              <input id="2-11" class="check-box" type="checkbox" name="2-11" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-11">
-              11. Quiz: HTML Research</label> </label>
+              <input id="2-11" class="check-box" type="checkbox" name="2-11" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              11. Quiz: HTML Research</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-12">
-              <input id="2-12" class="check-box" type="checkbox" name="2-12" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-12">
-              12. HTML Structure Part 2</label> </label>
+              <input id="2-12" class="check-box" type="checkbox" name="2-12" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              12. HTML Structure Part 2</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-13">
-              <input id="2-13" class="check-box" type="checkbox" name="2-13" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-13">
-              13. HTML Documents in Depth</label> </label>
+              <input id="2-13" class="check-box" type="checkbox" name="2-13" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              13. HTML Documents in Depth</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="2-14">
-              <input id="2-14" class="check-box" type="checkbox" name="2-14" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="2-14">
-              14. Lesson Wrap Up</label> </label>
+              <input id="2-14" class="check-box" type="checkbox" name="2-14" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              14. Lesson Wrap Up</span> </label>
             </li>
           </ul>
         </li>
         <li class="lesson-title">
     <label class="check-box-label html" for="lesson3">
-          <input id="lesson3" class="check-box" type="checkbox" name="lesson3" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="lesson3">
-          Lesson 3 - HTML Syntax Problem Set</label> <span class="muted waiting">Lesson Completed!</span></label><a class="button waiting" data-button-class="waiting" data-toggle="lesson3List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+          <input id="lesson3" class="check-box" type="checkbox" name="lesson3" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+          Lesson 3 - HTML Syntax Problem Set</span> <span class="muted waiting">Lesson Completed!</span></label><a class="button waiting" data-button-class="waiting" data-toggle="lesson3List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
           <ul id="lesson3List" class="exercise-list">
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-1">
-              <input id="3-1" class="check-box" type="checkbox" name="3-1" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-1">
-              1. Welcome to the Problem Set!</label> </label>
+              <input id="3-1" class="check-box" type="checkbox" name="3-1" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              1. Welcome to the Problem Set!</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-2">
-              <input id="3-2" class="check-box" type="checkbox" name="3-2" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-2">
-              2. Make a Button</label> </label>
+              <input id="3-2" class="check-box" type="checkbox" name="3-2" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              2. Make a Button</span> </label>
             </li>
             <li class="lesson-exercise">
               <label class="check-box-label html" for="3-3">
-              <input id="3-3" class="check-box" type="checkbox" name="3-3" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-3">
-    3. Make a Button Solution</label> </label>
+              <input id="3-3" class="check-box" type="checkbox" name="3-3" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+    3. Make a Button Solution</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-4">
-              <input id="3-4" class="check-box" type="checkbox" name="3-4" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-4">
-              4. Udacity Front End Feedback Extension</label> </label>
+              <input id="3-4" class="check-box" type="checkbox" name="3-4" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              4. Udacity Front End Feedback Extension</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-5">
-              <input id="3-5" class="check-box" type="checkbox" name="3-5" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-5">
-              5. Quiz: Make All the Headers</label> </label>
+              <input id="3-5" class="check-box" type="checkbox" name="3-5" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              5. Quiz: Make All the Headers</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-6">
-              <input id="3-6" class="check-box" type="checkbox" name="3-6" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-6">
-              6. Quiz: Make a List</label> </label>
+              <input id="3-6" class="check-box" type="checkbox" name="3-6" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              6. Quiz: Make a List</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-7">
-              <input id="3-7" class="check-box" type="checkbox" name="3-7" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-7">
-              7. Quiz: Tree to HTML</label> </label>
+              <input id="3-7" class="check-box" type="checkbox" name="3-7" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              7. Quiz: Tree to HTML</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-8">
-              <input id="3-8" class="check-box" type="checkbox" name="3-8" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-8">
-              8. Quiz: Constructing Links</label> </label>
+              <input id="3-8" class="check-box" type="checkbox" name="3-8" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              8. Quiz: Constructing Links</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-9">
-              <input id="3-9" class="check-box" type="checkbox" name="3-9" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-9">
-              9. Quiz: Add an Image</label> </label>
+              <input id="3-9" class="check-box" type="checkbox" name="3-9" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              9. Quiz: Add an Image</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-10">
-              <input id="3-10" class="check-box" type="checkbox" name="3-10" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-10">
-              10. A Guide to Paths</label> </label>
+              <input id="3-10" class="check-box" type="checkbox" name="3-10" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              10. A Guide to Paths</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-11">
-              <input id="3-11" class="check-box" type="checkbox" name="3-11" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-11">
-              11. Quiz: Figures</label> </label>
+              <input id="3-11" class="check-box" type="checkbox" name="3-11" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              11. Quiz: Figures</span> </label>
             </li>
             <li class="lesson-exercise">
     <label class="check-box-label html" for="3-12">
-              <input id="3-12" class="check-box" type="checkbox" name="3-12" data-category-type="html"> <span class="indicator"></span> <label class="text-label" for="3-12">
-              12. Mockup to Website</label> </label>
+              <input id="3-12" class="check-box" type="checkbox" name="3-12" data-category-type="html"> <span class="indicator"></span> <span class="text-label">
+              12. Mockup to Website</span> </label>
             </li>
           </ul>
           </li>
@@ -256,224 +257,224 @@
             <ul class="course-list">
               <li class="lesson-title">
               <label class="check-box-label css" for="lesson5">
-              <input id="lesson5" class="check-box" type="checkbox" name="lesson5" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="lesson5">
-                    Lesson 5 - CSS Syntax</label> <span class="muted primary">Lesson Completed!</span></label><a class="button" data-button-class="primary" data-toggle="lesson5List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
+              <input id="lesson5" class="check-box" type="checkbox" name="lesson5" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                    Lesson 5 - CSS Syntax</span> <span class="muted primary">Lesson Completed!</span></label><a class="button" data-button-class="primary" data-toggle="lesson5List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
                     <ul id="lesson5List" class="exercise-list active">
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-1">
-                        <input id="5-1" class="check-box" type="checkbox" name="5-1" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-1">
-                        1. Getting Started with CSS</label> </label>
+                        <input id="5-1" class="check-box" type="checkbox" name="5-1" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        1. Getting Started with CSS</span> </label>
                       </li>
                       <li class="lesson-exercise">
                         <label class="check-box-label css" for="5-2">
-                        <input id="5-2" class="check-box" type="checkbox" name="5-2" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-2">
-                        2. What is CSS?</label> </label>
+                        <input id="5-2" class="check-box" type="checkbox" name="5-2" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        2. What is CSS?</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-3">
-                        <input id="5-3" class="check-box" type="checkbox" name="5-3" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-3">
-                        3. Quiz: CSS or HTML?</label> </label>
+                        <input id="5-3" class="check-box" type="checkbox" name="5-3" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        3. Quiz: CSS or HTML?</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-4">
-                        <input id="5-4" class="check-box" type="checkbox" name="5-4" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-4">
-                        4. CSS Rulesets</label> </label>
+                        <input id="5-4" class="check-box" type="checkbox" name="5-4" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        4. CSS Rulesets</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-5">
-                        <input id="5-5" class="check-box" type="checkbox" name="5-5" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-5">
-                        5. Quiz: CSS Syntax</label> </label>
+                        <input id="5-5" class="check-box" type="checkbox" name="5-5" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        5. Quiz: CSS Syntax</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-6">
-                        <input id="5-6" class="check-box" type="checkbox" name="5-6" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-6">
-                        6. Comments</label> </label>
+                        <input id="5-6" class="check-box" type="checkbox" name="5-6" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        6. Comments</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-7">
-                        <input id="5-7" class="check-box" type="checkbox" name="5-7" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-7">
-                        7. Quiz: Tag Selectors</label> </label>
+                        <input id="5-7" class="check-box" type="checkbox" name="5-7" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        7. Quiz: Tag Selectors</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-8">
-                        <input id="5-8" class="check-box" type="checkbox" name="5-8" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-8">
-                        8. Attributes and Selectors</label> </label>
+                        <input id="5-8" class="check-box" type="checkbox" name="5-8" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        8. Attributes and Selectors</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-9">
-                        <input id="5-9" class="check-box" type="checkbox" name="5-9" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-9">
-                        9. Quiz: Using Selectors</label> </label>
+                        <input id="5-9" class="check-box" type="checkbox" name="5-9" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        9. Quiz: Using Selectors</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-10">
-                        <input id="5-10" class="check-box" type="checkbox" name="5-10" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-10">
-                        10. Quiz: Using CSS References</label> </label>
+                        <input id="5-10" class="check-box" type="checkbox" name="5-10" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        10. Quiz: Using CSS References</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-11">
-                        <input id="5-11" class="check-box" type="checkbox" name="5-11" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-11">
-                        11. Developer Tools</label> </label>
+                        <input id="5-11" class="check-box" type="checkbox" name="5-11" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        11. Developer Tools</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-12">
-                        <input id="5-12" class="check-box" type="checkbox" name="5-12" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-12">
-                        12. Developer Tools on Different Browsers</label> </label>
+                        <input id="5-12" class="check-box" type="checkbox" name="5-12" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        12. Developer Tools on Different Browsers</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-13">
-                        <input id="5-13" class="check-box" type="checkbox" name="5-13" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-13">
-                        13. Quiz: Using Developer Tools</label> </label>
+                        <input id="5-13" class="check-box" type="checkbox" name="5-13" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        13. Quiz: Using Developer Tools</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-14">
-                        <input id="5-14" class="check-box" type="checkbox" name="5-14" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-14">
-                        14. CSS Units</label> </label>
+                        <input id="5-14" class="check-box" type="checkbox" name="5-14" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        14. CSS Units</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-15">
-                        <input id="5-15" class="check-box" type="checkbox" name="5-15" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-15">
-                        15. Quiz: Units in CSS</label> </label>
+                        <input id="5-15" class="check-box" type="checkbox" name="5-15" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        15. Quiz: Units in CSS</span> </label>
                       </li>
                       <li class="lesson-exercise">
                         <label class="check-box-label css" for="5-16">
-                        <input id="5-16" class="check-box" type="checkbox" name="5-16" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-16">
-              16. CSS Colors</label> </label>
+                        <input id="5-16" class="check-box" type="checkbox" name="5-16" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+              16. CSS Colors</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-17">
-                        <input id="5-17" class="check-box" type="checkbox" name="5-17" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-17">
-                        17. Quiz: Identifying Colors</label> </label>
+                        <input id="5-17" class="check-box" type="checkbox" name="5-17" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        17. Quiz: Identifying Colors</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="5-18">
-                        <input id="5-18" class="check-box" type="checkbox" name="5-18" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="5-18">
-                        18. Outro</label> </label>
+                        <input id="5-18" class="check-box" type="checkbox" name="5-18" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        18. Outro</span> </label>
                       </li>
                     </ul>
                   </li>
                   <li class="lesson-title">
               <label class="check-box-label css" for="lesson6">
-                    <input id="lesson6" class="check-box" type="checkbox" name="lesson6" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="lesson6">
-                    Lesson 6 - CSS Syntax Problem Set</label> <span class="muted primary">Lesson Completed!</span></label><a class="button primary" data-button-class="primary" data-toggle="lesson6List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+                    <input id="lesson6" class="check-box" type="checkbox" name="lesson6" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                    Lesson 6 - CSS Syntax Problem Set</span> <span class="muted primary">Lesson Completed!</span></label><a class="button primary" data-button-class="primary" data-toggle="lesson6List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
                     <ul id="lesson6List" class="exercise-list">
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-1">
-                        <input id="6-1" class="check-box" type="checkbox" name="6-1" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-1">
-                        1. Welcome to the Problem Set!</label> </label>
+                        <input id="6-1" class="check-box" type="checkbox" name="6-1" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        1. Welcome to the Problem Set!</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-2">
-                        <input id="6-2" class="check-box" type="checkbox" name="6-2" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-2">
-                        2. Quiz: Style an Image</label> </label>
+                        <input id="6-2" class="check-box" type="checkbox" name="6-2" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        2. Quiz: Style an Image</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-3">
-                        <input id="6-3" class="check-box" type="checkbox" name="6-3" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-3">
-                        3. Quiz: Style the Font</label> </label>
+                        <input id="6-3" class="check-box" type="checkbox" name="6-3" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        3. Quiz: Style the Font</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-4">
-                        <input id="6-4" class="check-box" type="checkbox" name="6-4" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-4">
-                        4. IMPORTANT! Udacity Front End Feedback Extension</label> </label>
+                        <input id="6-4" class="check-box" type="checkbox" name="6-4" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        4. IMPORTANT! Udacity Front End Feedback Extension</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-5">
-                        <input id="6-5" class="check-box" type="checkbox" name="6-5" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-5">
-                        5. Quiz: Writing Selectors</label> </label>
+                        <input id="6-5" class="check-box" type="checkbox" name="6-5" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        5. Quiz: Writing Selectors</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-6">
-                        <input id="6-6" class="check-box" type="checkbox" name="6-6" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-6">
-                        6. Quiz: Using Attributes</label> </label>
+                        <input id="6-6" class="check-box" type="checkbox" name="6-6" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        6. Quiz: Using Attributes</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-7">
-                        <input id="6-7" class="check-box" type="checkbox" name="6-7" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-7">
-                        7. Quiz: Slack Card</label> </label>
+                        <input id="6-7" class="check-box" type="checkbox" name="6-7" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        7. Quiz: Slack Card</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-8">
-                        <input id="6-8" class="check-box" type="checkbox" name="6-8" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-8">
-                        8. Quiz: Udacity Site Header</label> </label>
+                        <input id="6-8" class="check-box" type="checkbox" name="6-8" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        8. Quiz: Udacity Site Header</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-9">
-                        <input id="6-9" class="check-box" type="checkbox" name="6-9" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-9">
-                        9. What is a Stylesheet?</label> </label>
+                        <input id="6-9" class="check-box" type="checkbox" name="6-9" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        9. What is a Stylesheet?</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="6-10">
-                        <input id="6-10" class="check-box" type="checkbox" name="6-10" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="6-10">
-                        10. Quiz: Link to a Stylesheet</label> </label>
+                        <input id="6-10" class="check-box" type="checkbox" name="6-10" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        10. Quiz: Link to a Stylesheet</span> </label>
                       </li>
                     </ul>
                   </li>
                   <li class="lesson-title">
               <label class="check-box-label css" for="lesson7">
-                    <input id="lesson7" class="check-box" type="checkbox" name="lesson7" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="lesson7">
-                    Lesson 7 - How to Write Code Faster</label><span class="muted primary">Lesson Completed!</span> </label><a class="button primary" data-button-class="primary" data-toggle="lesson7List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+                    <input id="lesson7" class="check-box" type="checkbox" name="lesson7" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                    Lesson 7 - How to Write Code Faster</span><span class="muted primary">Lesson Completed!</span> </label><a class="button primary" data-button-class="primary" data-toggle="lesson7List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
                     <ul id="lesson7List" class="exercise-list">
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-1">
-                        <input id="7-1" class="check-box" type="checkbox" name="7-1" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-1">
-                        1. Writing Code Faster</label> </label>
+                        <input id="7-1" class="check-box" type="checkbox" name="7-1" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        1. Writing Code Faster</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-2">
-                        <input id="7-2" class="check-box" type="checkbox" name="7-2" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-2">
-                        2. Sublime Text and Atom Keyboard Shortcuts</label> </label>
+                        <input id="7-2" class="check-box" type="checkbox" name="7-2" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        2. Sublime Text and Atom Keyboard Shortcuts</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-3">
-                        <input id="7-3" class="check-box" type="checkbox" name="7-3" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-3">
-                        3. Quiz: Practice Keyboard Shortcuts</label> </label>
+                        <input id="7-3" class="check-box" type="checkbox" name="7-3" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        3. Quiz: Practice Keyboard Shortcuts</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-4">
-                        <input id="7-4" class="check-box" type="checkbox" name="7-4" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-4">
-                        4. Quiz: Keyboard Shortcuts</label> </label>
+                        <input id="7-4" class="check-box" type="checkbox" name="7-4" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        4. Quiz: Keyboard Shortcuts</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-5">
-                        <input id="7-5" class="check-box" type="checkbox" name="7-5" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-5">
-                        5. Extending Sublime Text and Atom</label> </label>
+                        <input id="7-5" class="check-box" type="checkbox" name="7-5" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        5. Extending Sublime Text and Atom</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-6">
-                        <input id="7-6" class="check-box" type="checkbox" name="7-6" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-6">
-                        6. Installing Packages and Themes</label> </label>
+                        <input id="7-6" class="check-box" type="checkbox" name="7-6" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        6. Installing Packages and Themes</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-7">
-                        <input id="7-7" class="check-box" type="checkbox" name="7-7" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-7">
-                        7. Recommended Packages</label> </label>
+                        <input id="7-7" class="check-box" type="checkbox" name="7-7" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        7. Recommended Packages</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-8">
-                        <input id="7-8" class="check-box" type="checkbox" name="7-8" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-8">
-                        8. Recommended Themes</label> </label>
+                        <input id="7-8" class="check-box" type="checkbox" name="7-8" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        8. Recommended Themes</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-9">
-                        <input id="7-9" class="check-box" type="checkbox" name="7-9" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-9">
-                       9. Quiz: What’s Your Favorite Theme?</label> </label>
+                        <input id="7-9" class="check-box" type="checkbox" name="7-9" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                       9. Quiz: What’s Your Favorite Theme?</span> </label>
                       </li>
                       <li class="lesson-exercise">
               <label class="check-box-label css" for="7-10">
-                        <input id="7-10" class="check-box" type="checkbox" name="7-10" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="7-10">
-                        10. Coder, Better, Tooler, Hacker</label> </label>
+                        <input id="7-10" class="check-box" type="checkbox" name="7-10" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+                        10. Coder, Better, Tooler, Hacker</span> </label>
                       </li>
                     </ul>
                   </li>
               <li class="lesson-title">
 <label class="check-box-label css" for="lesson9">
-      <input id="lesson9" class="check-box" type="checkbox" name="lesson9" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="lesson9">
-      Lesson 9 - Next Up</label> <span class="muted primary">Lesson Completed!</span></label><a class="button primary" data-button-class="primary" data-toggle="lesson9List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson9" class="check-box" type="checkbox" name="lesson9" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+      Lesson 9 - Next Up</span> <span class="muted primary">Lesson Completed!</span></label><a class="button primary" data-button-class="primary" data-toggle="lesson9List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson9List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label css" for="9-1">
-          <input id="9-1" class="check-box" type="checkbox" name="9-1" data-category-type="css"> <span class="indicator"></span> <label class="text-label" for="9-1">
-          1. Onward</label> </label>
+          <input id="9-1" class="check-box" type="checkbox" name="9-1" data-category-type="css"> <span class="indicator"></span> <span class="text-label">
+          1. Onward</span> </label>
         </li>
       </ul>
               </li>
@@ -484,722 +485,722 @@
             <ul class="course-list">
               <li class="lesson-title">
 <label class="check-box-label javascript" for="lesson10">
-      <input id="lesson10" class="check-box" type="checkbox" name="lesson10" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="lesson10">
-     Lesson 10 - What is JavaScript?</label> <span class="muted error">Lesson Completed!</span></label><a class="button" data-button-class="error" data-toggle="lesson10List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
+      <input id="lesson10" class="check-box" type="checkbox" name="lesson10" data-category-type="javascript"> <span class="indicator"></span><span class="text-label">
+     Lesson 10 - What is JavaScript?</span> <span class="muted error">Lesson Completed!</span> </label> <a class="button" data-button-class="error" data-toggle="lesson10List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
       <ul id="lesson10List" class="exercise-list active">
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="10-1">
-          <input id="10-1" class="check-box" type="checkbox" name="10-1" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="10-1">
-          1. Intro to JavaScript</label> </label>
+          <input id="10-1" class="check-box" type="checkbox" name="10-1" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          1. Intro to JavaScript</span> </label>
         </li>
         <li class="lesson-exercise">
           <label class="check-box-label javascript" for="10-2">
-          <input id="10-2" class="check-box" type="checkbox" name="10-2" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="10-2">
-2. History of JavaScript</label> </label>
+          <input id="10-2" class="check-box" type="checkbox" name="10-2" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+2. History of JavaScript</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="10-3">
-          <input id="10-3" class="check-box" type="checkbox" name="10-3" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="10-3">
-          3. The JavaScript Console</label> </label>
+          <input id="10-3" class="check-box" type="checkbox" name="10-3" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          3. The JavaScript Console</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="10-4">
-          <input id="10-4" class="check-box" type="checkbox" name="10-4" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="10-4">
-          4. Developer Tools on Different Browsers</label> </label>
+          <input id="10-4" class="check-box" type="checkbox" name="10-4" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          4. Developer Tools on Different Browsers</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="10-5">
-          <input id="10-5" class="check-box" type="checkbox" name="10-5" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="10-5">
-          5. console.log</label> </label>
+          <input id="10-5" class="check-box" type="checkbox" name="10-5" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          5. console.log</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="10-6">
-          <input id="10-6" class="check-box" type="checkbox" name="10-6" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="10-6">
-          6. JavaScript Demo</label> </label>
+          <input id="10-6" class="check-box" type="checkbox" name="10-6" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          6. JavaScript Demo</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="10-7">
-          <input id="10-7" class="check-box" type="checkbox" name="10-7" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="10-7">
-          7. Lesson 1 Summary</label> </label>
+          <input id="10-7" class="check-box" type="checkbox" name="10-7" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          7. Lesson 1 Summary</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label javascript" for="lesson11">
-      <input id="lesson11" class="check-box" type="checkbox" name="lesson11" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="lesson11">
-      Lesson 11 - Data Types & Variables</label> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson11List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson11" class="check-box" type="checkbox" name="lesson11" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+      Lesson 11 - Data Types & Variables</span> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson11List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson11List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-1">
-          <input id="11-1" class="check-box" type="checkbox" name="11-1" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-1">
-          1. Intro to Data Types</label> </label>
+          <input id="11-1" class="check-box" type="checkbox" name="11-1" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          1. Intro to Data Types</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-2">
-          <input id="11-2" class="check-box" type="checkbox" name="11-2" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-2">
-          2. Numbers</label> </label>
+          <input id="11-2" class="check-box" type="checkbox" name="11-2" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          2. Numbers</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-3">
-          <input id="11-3" class="check-box" type="checkbox" name="11-3" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-3">
-          3. Comments</label> </label>
+          <input id="11-3" class="check-box" type="checkbox" name="11-3" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          3. Comments</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-4">
-          <input id="11-4" class="check-box" type="checkbox" name="11-4" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-4">
-          4. Quiz: First Expression (2-1)</label> </label>
+          <input id="11-4" class="check-box" type="checkbox" name="11-4" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          4. Quiz: First Expression (2-1)</span> </label>
         </li>
         <li class="lesson-exercise">
           <label class="check-box-label javascript" for="11-5">
-          <input id="11-5" class="check-box" type="checkbox" name="11-5" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-5">
-5. Strings</label> </label>
+          <input id="11-5" class="check-box" type="checkbox" name="11-5" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+5. Strings</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-6">
-          <input id="11-6" class="check-box" type="checkbox" name="11-6" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-6">
-         6. String Concatenation</label> </label>
+          <input id="11-6" class="check-box" type="checkbox" name="11-6" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+         6. String Concatenation</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-7">
-          <input id="11-7" class="check-box" type="checkbox" name="11-7" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-7">
-          7. Variables</label> </label>
+          <input id="11-7" class="check-box" type="checkbox" name="11-7" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          7. Variables</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-8">
-          <input id="11-8" class="check-box" type="checkbox" name="11-8" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-8">
-          8. Quiz: Converting Temperatures (2-2)</label> </label>
+          <input id="11-8" class="check-box" type="checkbox" name="11-8" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          8. Quiz: Converting Temperatures (2-2)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-9">
-          <input id="11-9" class="check-box" type="checkbox" name="11-9" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-9">
-          9. String Index</label> </label>
+          <input id="11-9" class="check-box" type="checkbox" name="11-9" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          9. String Index</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-10">
-          <input id="11-10" class="check-box" type="checkbox" name="11-10" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-10">
-          10. Escaping Strings</label> </label>
+          <input id="11-10" class="check-box" type="checkbox" name="11-10" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          10. Escaping Strings</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-11">
-          <input id="11-11" class="check-box" type="checkbox" name="11-11" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-11">
-          11. Comparing Strings</label> </label>
+          <input id="11-11" class="check-box" type="checkbox" name="11-11" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          11. Comparing Strings</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-12">
-          <input id="11-12" class="check-box" type="checkbox" name="11-12" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-12">
-          12. Quiz: Favorite Food (2-3)</label> </label>
+          <input id="11-12" class="check-box" type="checkbox" name="11-12" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          12. Quiz: Favorite Food (2-3)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-13">
-          <input id="11-13" class="check-box" type="checkbox" name="11-13" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-13">
-          13. Quiz: String Equality for All (2-4)</label> </label>
+          <input id="11-13" class="check-box" type="checkbox" name="11-13" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          13. Quiz: String Equality for All (2-4)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-14">
-          <input id="11-14" class="check-box" type="checkbox" name="11-14" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-14">
-          14. Quiz: All Tied Up (2-5)</label> </label>
+          <input id="11-14" class="check-box" type="checkbox" name="11-14" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          14. Quiz: All Tied Up (2-5)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-15">
-          <input id="11-15" class="check-box" type="checkbox" name="11-15" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-15">
-          15. Quiz: Yosa Buson (2-6)</label> </label>
+          <input id="11-15" class="check-box" type="checkbox" name="11-15" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          15. Quiz: Yosa Buson (2-6)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-16">
-          <input id="11-16" class="check-box" type="checkbox" name="11-16" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-16">
-          16. Booleans</label> </label>
+          <input id="11-16" class="check-box" type="checkbox" name="11-16" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          16. Booleans</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-17">
-          <input id="11-17" class="check-box" type="checkbox" name="11-17" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-17">
-         17. Quiz: Facebook Post (2-7)</label> </label>
+          <input id="11-17" class="check-box" type="checkbox" name="11-17" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+         17. Quiz: Facebook Post (2-7)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-18">
-          <input id="11-18" class="check-box" type="checkbox" name="11-18" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-18">
-          18. Null, Undefined, and NaN</label> </label>
+          <input id="11-18" class="check-box" type="checkbox" name="11-18" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          18. Null, Undefined, and NaN</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-19">
-          <input id="11-19" class="check-box" type="checkbox" name="11-19" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-19">
-          19. Equality</label> </label>
+          <input id="11-19" class="check-box" type="checkbox" name="11-19" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          19. Equality</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-20">
-          <input id="11-20" class="check-box" type="checkbox" name="11-20" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-20">
-          20. Quiz: Semicolons! (2-8)</label> </label>
+          <input id="11-20" class="check-box" type="checkbox" name="11-20" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          20. Quiz: Semicolons! (2-8)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-21">
-          <input id="11-21" class="check-box" type="checkbox" name="11-21" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-21">
-          21. Quiz: What's my Name? (2-9)</label> </label>
+          <input id="11-21" class="check-box" type="checkbox" name="11-21" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          21. Quiz: What's my Name? (2-9)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-22">
-          <input id="11-22" class="check-box" type="checkbox" name="11-22" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-22">
-          22. Quiz: Out to Dinner (2-10)</label> </label>
+          <input id="11-22" class="check-box" type="checkbox" name="11-22" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          22. Quiz: Out to Dinner (2-10)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-23">
-          <input id="11-23" class="check-box" type="checkbox" name="11-23" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-23">
-          23. Quiz: Mad Libs (2-11)</label> </label>
+          <input id="11-23" class="check-box" type="checkbox" name="11-23" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          23. Quiz: Mad Libs (2-11)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-24">
-          <input id="11-24" class="check-box" type="checkbox" name="11-24" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-24">
-          24. Quiz: One Awesome Message (2-12)</label> </label>
+          <input id="11-24" class="check-box" type="checkbox" name="11-24" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          24. Quiz: One Awesome Message (2-12)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="11-25">
-          <input id="11-25" class="check-box" type="checkbox" name="11-25" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="11-25">
-          25. Lesson 2 Summary</label> </label>
+          <input id="11-25" class="check-box" type="checkbox" name="11-25" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          25. Lesson 2 Summary</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label javascript" for="lesson12">
-      <input id="lesson12" class="check-box" type="checkbox" name="lesson12" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="lesson12">
-     Lesson 12 - Conditionals</label> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson12List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson12" class="check-box" type="checkbox" name="lesson12" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+     Lesson 12 - Conditionals</span> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson12List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson12List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-1">
-          <input id="12-1" class="check-box" type="checkbox" name="12-1" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-1">
-          1. Intro to Conditionals</label> </label>
+          <input id="12-1" class="check-box" type="checkbox" name="12-1" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          1. Intro to Conditionals</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-2">
-          <input id="12-2" class="check-box" type="checkbox" name="12-2" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-2">
-          2. Quiz: Flowcharts (3-1)</label> </label>
+          <input id="12-2" class="check-box" type="checkbox" name="12-2" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          2. Quiz: Flowcharts (3-1)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-3">
-          <input id="12-3" class="check-box" type="checkbox" name="12-3" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-3">
-          3. Flowchart to Code</label> </label>
+          <input id="12-3" class="check-box" type="checkbox" name="12-3" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          3. Flowchart to Code</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-4">
-          <input id="12-4" class="check-box" type="checkbox" name="12-4" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-4">
-          4. If...Else Statements</label> </label>
+          <input id="12-4" class="check-box" type="checkbox" name="12-4" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          4. If...Else Statements</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-5">
-          <input id="12-5" class="check-box" type="checkbox" name="12-5" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-5">
-          5. Else If Statements</label> </label>
+          <input id="12-5" class="check-box" type="checkbox" name="12-5" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          5. Else If Statements</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-6">
-          <input id="12-6" class="check-box" type="checkbox" name="12-6" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-6">
-          6. Quiz: Even or Odd (3-2)</label> </label>
+          <input id="12-6" class="check-box" type="checkbox" name="12-6" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          6. Quiz: Even or Odd (3-2)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-7">
-          <input id="12-7" class="check-box" type="checkbox" name="12-7" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-7">
-         7. Quiz: Musical Groups (3-3)</label> </label>
+          <input id="12-7" class="check-box" type="checkbox" name="12-7" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+         7. Quiz: Musical Groups (3-3)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-8">
-          <input id="12-8" class="check-box" type="checkbox" name="12-8" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-8">
-          8. Quiz: Murder Mystery (3-4)</label> </label>
+          <input id="12-8" class="check-box" type="checkbox" name="12-8" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          8. Quiz: Murder Mystery (3-4)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-9">
-          <input id="12-9" class="check-box" type="checkbox" name="12-9" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-9">
-          9. More Complex Problems</label> </label>
+          <input id="12-9" class="check-box" type="checkbox" name="12-9" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          9. More Complex Problems</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-10">
-          <input id="12-10" class="check-box" type="checkbox" name="12-10" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-10">
-          10. Logical Operators</label> </label>
+          <input id="12-10" class="check-box" type="checkbox" name="12-10" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          10. Logical Operators</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-11">
-          <input id="12-11" class="check-box" type="checkbox" name="12-11" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-11">
-          11. Logical AND and OR</label> </label>
+          <input id="12-11" class="check-box" type="checkbox" name="12-11" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          11. Logical AND and OR</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-12">
-          <input id="12-12" class="check-box" type="checkbox" name="12-12" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-12">
-          12. Quiz: Checking your Balance (3-5)</label> </label>
+          <input id="12-12" class="check-box" type="checkbox" name="12-12" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          12. Quiz: Checking your Balance (3-5)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-13">
-          <input id="12-13" class="check-box" type="checkbox" name="12-13" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-13">
-          13. Quiz: Ice Cream (3-6)</label> </label>
+          <input id="12-13" class="check-box" type="checkbox" name="12-13" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          13. Quiz: Ice Cream (3-6)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-14">
-          <input id="12-14" class="check-box" type="checkbox" name="12-14" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-14">
-          14. Quiz: What do I Wear? (3-7)</label> </label>
+          <input id="12-14" class="check-box" type="checkbox" name="12-14" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          14. Quiz: What do I Wear? (3-7)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-15">
-          <input id="12-15" class="check-box" type="checkbox" name="12-15" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-15">
-          15. Advanced Conditionals</label> </label>
+          <input id="12-15" class="check-box" type="checkbox" name="12-15" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          15. Advanced Conditionals</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-16">
-          <input id="12-16" class="check-box" type="checkbox" name="12-16" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-16">
-          16. Truthy and Falsy</label> </label>
+          <input id="12-16" class="check-box" type="checkbox" name="12-16" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          16. Truthy and Falsy</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-17">
-          <input id="12-17" class="check-box" type="checkbox" name="12-17" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-17">
-          17. Ternary Operator</label> </label>
+          <input id="12-17" class="check-box" type="checkbox" name="12-17" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          17. Ternary Operator</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-18">
-          <input id="12-18" class="check-box" type="checkbox" name="12-18" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-18">
-          18. Quiz: Navigating the Food Chain (3-8)</label> </label>
+          <input id="12-18" class="check-box" type="checkbox" name="12-18" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          18. Quiz: Navigating the Food Chain (3-8)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-19">
-          <input id="12-19" class="check-box" type="checkbox" name="12-19" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-19">
-          19. Switch Statement</label> </label>
+          <input id="12-19" class="check-box" type="checkbox" name="12-19" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          19. Switch Statement</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-20">
-          <input id="12-20" class="check-box" type="checkbox" name="12-20" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-20">
-          20. Falling-through</label> </label>
+          <input id="12-20" class="check-box" type="checkbox" name="12-20" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          20. Falling-through</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-21">
-          <input id="12-21" class="check-box" type="checkbox" name="12-21" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-21">
-          21. Quiz: Back to School (3-9)</label> </label>
+          <input id="12-21" class="check-box" type="checkbox" name="12-21" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          21. Quiz: Back to School (3-9)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="12-22">
-          <input id="12-22" class="check-box" type="checkbox" name="12-22" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="12-22">
-          22. Lesson 3 Summary</label> </label>
+          <input id="12-22" class="check-box" type="checkbox" name="12-22" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          22. Lesson 3 Summary</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label javascript" for="lesson13">
-      <input id="lesson13" class="check-box" type="checkbox" name="lesson13" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="lesson13">
-      Lesson 13 - Loops</label> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson13List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson13" class="check-box" type="checkbox" name="lesson13" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+      Lesson 13 - Loops</span> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson13List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson13List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-1">
-          <input id="13-1" class="check-box" type="checkbox" name="13-1" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-1">
-          1. Intro to Loops</label> </label>
+          <input id="13-1" class="check-box" type="checkbox" name="13-1" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          1. Intro to Loops</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-2">
-          <input id="13-2" class="check-box" type="checkbox" name="13-2" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-2">
-          2. While Loops</label> </label>
+          <input id="13-2" class="check-box" type="checkbox" name="13-2" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          2. While Loops</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-3">
-          <input id="13-3" class="check-box" type="checkbox" name="13-3" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-3">
-          3. Parts of a While Loop</label> </label>
+          <input id="13-3" class="check-box" type="checkbox" name="13-3" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          3. Parts of a While Loop</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-4">4
-          <input id="13-4" class="check-box" type="checkbox" name="13-4" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-4">
-          . Quiz: JuliaJames (4-1)</label> </label>
+          <input id="13-4" class="check-box" type="checkbox" name="13-4" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          . Quiz: JuliaJames (4-1)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-5">
-          <input id="13-5" class="check-box" type="checkbox" name="13-5" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-5">
-          5. Quiz: 99 Bottles of Juice (4-2)</label> </label>
+          <input id="13-5" class="check-box" type="checkbox" name="13-5" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          5. Quiz: 99 Bottles of Juice (4-2)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-6">
-          <input id="13-6" class="check-box" type="checkbox" name="13-6" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-6">
-          6. Quiz: Countdown, Liftoff! (4-3)</label> </label>
+          <input id="13-6" class="check-box" type="checkbox" name="13-6" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          6. Quiz: Countdown, Liftoff! (4-3)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-7">
-          <input id="13-7" class="check-box" type="checkbox" name="13-7" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-7">
-          7. For Loops</label> </label>
+          <input id="13-7" class="check-box" type="checkbox" name="13-7" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          7. For Loops</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-8">
-          <input id="13-8" class="check-box" type="checkbox" name="13-8" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-8">
-          8. Parts of a For Loop</label> </label>
+          <input id="13-8" class="check-box" type="checkbox" name="13-8" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          8. Parts of a For Loop</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-9">
-          <input id="13-9" class="check-box" type="checkbox" name="13-9" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label"for="13-9">
-          9. Nested Loops</label> </label>
+          <input id="13-9" class="check-box" type="checkbox" name="13-9" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          9. Nested Loops</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-10">
-          <input id="13-10" class="check-box" type="checkbox" name="13-10" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-10">
-          10. Increment and Decrement</label> </label>
+          <input id="13-10" class="check-box" type="checkbox" name="13-10" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          10. Increment and Decrement</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-11">
-          <input id="13-11" class="check-box" type="checkbox" name="13-11" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-11">
-          11. Quiz: Changing the Loop (4-4)</label> </label>
+          <input id="13-11" class="check-box" type="checkbox" name="13-11" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          11. Quiz: Changing the Loop (4-4)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-12">
-          <input id="13-12" class="check-box" type="checkbox" name="13-12" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-12">
-          12. Quiz: Fix the Error 1 (4-5)</label> </label>
+          <input id="13-12" class="check-box" type="checkbox" name="13-12" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          12. Quiz: Fix the Error 1 (4-5)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-13">
-          <input id="13-13" class="check-box" type="checkbox" name="13-13" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-13">
-          13. Quiz: Fix the Error 2 (4-6)</label> </label>
+          <input id="13-13" class="check-box" type="checkbox" name="13-13" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          13. Quiz: Fix the Error 2 (4-6)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-14">
-          <input id="13-14" class="check-box" type="checkbox" name="13-14" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-14">
-          14. Quiz: Factorials! (4-7)</label> </label>
+          <input id="13-14" class="check-box" type="checkbox" name="13-14" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          14. Quiz: Factorials! (4-7)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-15">
-          <input id="13-15" class="check-box" type="checkbox" name="13-15" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-15">
-          15. Quiz: Find my Seat (4-8)</label> </label>
+          <input id="13-15" class="check-box" type="checkbox" name="13-15" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          15. Quiz: Find my Seat (4-8)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="13-16">
-          <input id="13-16" class="check-box" type="checkbox" name="13-16" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="13-16">
-          16. Lesson 4 Summary</label> </label>
+          <input id="13-16" class="check-box" type="checkbox" name="13-16" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          16. Lesson 4 Summary</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label javascript" for="lesson14">
-      <input id="lesson14" class="check-box" type="checkbox" name="lesson14" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="lesson14">
-      Lesson 14 - Functions</label> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson14List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson14" class="check-box" type="checkbox" name="lesson14" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+      Lesson 14 - Functions</span> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson14List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson14List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-1">
-          <input id="14-1" class="check-box" type="checkbox" name="14-1" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-1">
-          1. Intro to Functions</label> </label>
+          <input id="14-1" class="check-box" type="checkbox" name="14-1" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          1. Intro to Functions</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-2">
-          <input id="14-2" class="check-box" type="checkbox" name="14-2" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-2">
-          2. Function Example</label> </label>
+          <input id="14-2" class="check-box" type="checkbox" name="14-2" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          2. Function Example</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-3">
-          <input id="14-3" class="check-box" type="checkbox" name="14-3" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-3">
-          3. Declaring Functions</label> </label>
+          <input id="14-3" class="check-box" type="checkbox" name="14-3" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          3. Declaring Functions</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-4">
-          <input id="14-4" class="check-box" type="checkbox" name="14-4" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-4">
-          4. Function Recap</label> </label>
+          <input id="14-4" class="check-box" type="checkbox" name="14-4" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          4. Function Recap</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-5">
-          <input id="14-5" class="check-box" type="checkbox" name="14-5" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-5">
-          5. Quiz: Laugh it Off 1 (5-1)</label> </label>
+          <input id="14-5" class="check-box" type="checkbox" name="14-5" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          5. Quiz: Laugh it Off 1 (5-1)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-6">
-          <input id="14-6" class="check-box" type="checkbox" name="14-6" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-6">
-          6. Quiz: Laugh it Off 2 (5-2)</label> </label>
+          <input id="14-6" class="check-box" type="checkbox" name="14-6" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          6. Quiz: Laugh it Off 2 (5-2)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-7">
-          <input id="14-7" class="check-box" type="checkbox" name="14-7" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-7">
-          7. Return Values</label> </label>
+          <input id="14-7" class="check-box" type="checkbox" name="14-7" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          7. Return Values</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-8">
-          <input id="14-8" class="check-box" type="checkbox" name="14-8" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-8">
-          8. Using Return Values</label> </label>
+          <input id="14-8" class="check-box" type="checkbox" name="14-8" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          8. Using Return Values</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-9">
-          <input id="14-9" class="check-box" type="checkbox" name="14-9" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-9">
-          9. Scope</label> </label>
+          <input id="14-9" class="check-box" type="checkbox" name="14-9" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          9. Scope</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-10">
-          <input id="14-10" class="check-box" type="checkbox" name="14-10" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-10">
-          10. Scope Example</label> </label>
+          <input id="14-10" class="check-box" type="checkbox" name="14-10" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          10. Scope Example</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-11">
-          <input id="14-11" class="check-box" type="checkbox" name="14-11" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-11">
-          11. Shadowing</label> </label>
+          <input id="14-11" class="check-box" type="checkbox" name="14-11" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          11. Shadowing</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-12">
-          <input id="14-12" class="check-box" type="checkbox" name="14-12" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-12">
-          12. Global Variables</label> </label>
+          <input id="14-12" class="check-box" type="checkbox" name="14-12" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          12. Global Variables</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-13">
-          <input id="14-13" class="check-box" type="checkbox" name="14-13" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-13">
-          13. Scope Recap</label> </label>
+          <input id="14-13" class="check-box" type="checkbox" name="14-13" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          13. Scope Recap</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-14">
-          <input id="14-14" class="check-box" type="checkbox" name="14-14" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-14">
-          14. Hoisting</label> </label>
+          <input id="14-14" class="check-box" type="checkbox" name="14-14" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          14. Hoisting</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-15">
-          <input id="14-15" class="check-box" type="checkbox" name="14-15" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-15">
-          15. Hoisting Recap</label> </label>
+          <input id="14-15" class="check-box" type="checkbox" name="14-15" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          15. Hoisting Recap</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-16">
-          <input id="14-16" class="check-box" type="checkbox" name="14-16" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-16">
-          16. Quiz: Build a Triangle (5-3)</label> </label>
+          <input id="14-16" class="check-box" type="checkbox" name="14-16" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          16. Quiz: Build a Triangle (5-3)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-17">
-          <input id="14-17" class="check-box" type="checkbox" name="14-17" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-17">
-          17. Function Expressions</label> </label>
+          <input id="14-17" class="check-box" type="checkbox" name="14-17" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          17. Function Expressions</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-18">
-          <input id="14-18" class="check-box" type="checkbox" name="14-18" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-18">
-          18. Patterns with Function Expressions</label> </label>
+          <input id="14-18" class="check-box" type="checkbox" name="14-18" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          18. Patterns with Function Expressions</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-19">
-          <input id="14-19" class="check-box" type="checkbox" name="14-19" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-19">
-          19. Function Expression Recap</label> </label>
+          <input id="14-19" class="check-box" type="checkbox" name="14-19" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          19. Function Expression Recap</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-20">
-          <input id="14-20" class="check-box" type="checkbox" name="14-20" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-20">
-          20. Quiz: Laugh (5-4)</label> </label>
+          <input id="14-20" class="check-box" type="checkbox" name="14-20" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          20. Quiz: Laugh (5-4)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-21">
-          <input id="14-21" class="check-box" type="checkbox" name="14-21" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-21">
-          21. Quiz: Cry (5-5)</label> </label>
+          <input id="14-21" class="check-box" type="checkbox" name="14-21" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          21. Quiz: Cry (5-5)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-22">
-          <input id="14-22" class="check-box" type="checkbox" name="14-22" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-22">
-          22. Quiz: Inline (5-6)</label> </label>
+          <input id="14-22" class="check-box" type="checkbox" name="14-22" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          22. Quiz: Inline (5-6)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="14-23">
-          <input id="14-23" class="check-box" type="checkbox" name="14-23" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="14-23">
-          23. Lesson 5 Summary</label> </label>
+          <input id="14-23" class="check-box" type="checkbox" name="14-23" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          23. Lesson 5 Summary</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label javascript" for="lesson15">
-      <input id="lesson15" class="check-box" type="checkbox" name="lesson15" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="lesson15">
-      Lesson 15 - Arrays</label> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson15List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson15" class="check-box" type="checkbox" name="lesson15" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+      Lesson 15 - Arrays</span> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson15List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson15List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-1">
-          <input id="15-1" class="check-box" type="checkbox" name="15-1" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-1">
-          1. Intro to Arrays</label> </label>
+          <input id="15-1" class="check-box" type="checkbox" name="15-1" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          1. Intro to Arrays</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-2">
-          <input id="15-2" class="check-box" type="checkbox" name="15-2" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-2">
-          2. Donuts to Code</label> </label>
+          <input id="15-2" class="check-box" type="checkbox" name="15-2" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          2. Donuts to Code</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-3">
-          <input id="15-3" class="check-box" type="checkbox" name="15-3" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-3">
-          3. Creating an Array</label> </label>
+          <input id="15-3" class="check-box" type="checkbox" name="15-3" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          3. Creating an Array</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-4">
-          <input id="15-4" class="check-box" type="checkbox" name="15-4" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-4">
-          4. Accessing Array Elements</label> </label>
+          <input id="15-4" class="check-box" type="checkbox" name="15-4" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          4. Accessing Array Elements</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-5">
-          <input id="15-5" class="check-box" type="checkbox" name="15-5" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-5">
-          5. Array Index</label> </label>
+          <input id="15-5" class="check-box" type="checkbox" name="15-5" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          5. Array Index</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-6">
-          <input id="15-6" class="check-box" type="checkbox" name="15-6" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-6">
-          6. Quiz: UdaciFamily (6-1)</label> </label>
+          <input id="15-6" class="check-box" type="checkbox" name="15-6" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          6. Quiz: UdaciFamily (6-1)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-7">
-          <input id="15-7" class="check-box" type="checkbox" name="15-7" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-7">
-          7. Quiz: Building the Crew (6-2)</label> </label>
+          <input id="15-7" class="check-box" type="checkbox" name="15-7" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          7. Quiz: Building the Crew (6-2)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-8">
-          <input id="15-8" class="check-box" type="checkbox" name="15-8" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-8">
-          8. Quiz: The Price is Right (6-3)</label> </label>
+          <input id="15-8" class="check-box" type="checkbox" name="15-8" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          8. Quiz: The Price is Right (6-3)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-9">
-          <input id="15-9" class="check-box" type="checkbox" name="15-9" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-9">
-          9. Array Properties and Methods</label> </label>
+          <input id="15-9" class="check-box" type="checkbox" name="15-9" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          9. Array Properties and Methods</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-10">
-          <input id="15-10" class="check-box" type="checkbox" name="15-10" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-10">
-          10. Length</label> </label>
+          <input id="15-10" class="check-box" type="checkbox" name="15-10" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          10. Length</span> </label>
         </li>
         <li class="lesson-exercise">
           <label class="check-box-label javascript" for="15-11">
-          <input id="15-11" class="check-box" type="checkbox" name="15-11" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-11">
-11. Push</label> </label>
+          <input id="15-11" class="check-box" type="checkbox" name="15-11" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+11. Push</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-12">
-          <input id="15-12" class="check-box" type="checkbox" name="15-12" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-12">
-          12. Pop</label> </label>
+          <input id="15-12" class="check-box" type="checkbox" name="15-12" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          12. Pop</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-13">
-          <input id="15-13" class="check-box" type="checkbox" name="15-13" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-13">
-          13. Splice</label> </label>
+          <input id="15-13" class="check-box" type="checkbox" name="15-13" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          13. Splice</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-14">
-          <input id="15-14" class="check-box" type="checkbox" name="15-14" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-14">
-          14. Quiz: Colors of the Rainbow (6-4)</label> </label>
+          <input id="15-14" class="check-box" type="checkbox" name="15-14" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          14. Quiz: Colors of the Rainbow (6-4)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-15">
-          <input id="15-15" class="check-box" type="checkbox" name="15-15" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-15">
-          15. Quiz: Quidditch Cup (6-5)</label> </label>
+          <input id="15-15" class="check-box" type="checkbox" name="15-15" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          15. Quiz: Quidditch Cup (6-5)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-16">
-          <input id="15-16" class="check-box" type="checkbox" name="15-16" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-16">
-          16. Quiz: Joining the Crew (6-6)</label> </label>
+          <input id="15-16" class="check-box" type="checkbox" name="15-16" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          16. Quiz: Joining the Crew (6-6)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-17">
-          <input id="15-17" class="check-box" type="checkbox" name="15-17" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-17">
-          17. Quiz: Checking out the Docs (6-7)</label> </label>
+          <input id="15-17" class="check-box" type="checkbox" name="15-17" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          17. Quiz: Checking out the Docs (6-7)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-18">
-          <input id="15-18" class="check-box" type="checkbox" name="15-18" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-18">
-          18. Array Loops</label> </label>
+          <input id="15-18" class="check-box" type="checkbox" name="15-18" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          18. Array Loops</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-19">
-          <input id="15-19" class="check-box" type="checkbox" name="15-19" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-19">
-          19. The forEach Loop</label> </label>
+          <input id="15-19" class="check-box" type="checkbox" name="15-19" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          19. The forEach Loop</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-20">
-          <input id="15-20" class="check-box" type="checkbox" name="15-20" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-20">
-          20. Quiz: Another Type of Loop (6-8)</label> </label>
+          <input id="15-20" class="check-box" type="checkbox" name="15-20" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          20. Quiz: Another Type of Loop (6-8)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-21">
-          <input id="15-21" class="check-box" type="checkbox" name="15-21" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-21">
-          21. Map</label> </label>
+          <input id="15-21" class="check-box" type="checkbox" name="15-21" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          21. Map</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-22">
-          <input id="15-22" class="check-box" type="checkbox" name="15-22" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-22">
-          22. Quiz: I Got Bills (6-9)</label> </label>
+          <input id="15-22" class="check-box" type="checkbox" name="15-22" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          22. Quiz: I Got Bills (6-9)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-23">
-          <input id="15-23" class="check-box" type="checkbox" name="15-23" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-23">
-          23. Arrays in Arrays</label> </label>
+          <input id="15-23" class="check-box" type="checkbox" name="15-23" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          23. Arrays in Arrays</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-24">
-          <input id="15-24" class="check-box" type="checkbox" name="15-24" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-24">
-          24. 2D Donut Arrays</label> </label>
+          <input id="15-24" class="check-box" type="checkbox" name="15-24" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          24. 2D Donut Arrays</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-25">
-          <input id="15-25" class="check-box" type="checkbox" name="15-25" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-25">
-          25. Quiz: Nested Numbers (6-10)</label> </label>
+          <input id="15-25" class="check-box" type="checkbox" name="15-25" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          25. Quiz: Nested Numbers (6-10)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="15-26">
-          <input id="15-26" class="check-box" type="checkbox" name="15-26" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="15-26">
-          26. Lesson 6 Summary</label> </label>
+          <input id="15-26" class="check-box" type="checkbox" name="15-26" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          26. Lesson 6 Summary</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label javascript" for="lesson16">
-      <input id="lesson16" class="check-box" type="checkbox" name="lesson16" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="lesson16">
-      Lesson 16 - Objects</label> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson16List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson16" class="check-box" type="checkbox" name="lesson16" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+      Lesson 16 - Objects</span> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson16List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson16List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-1">
-          <input id="16-1" class="check-box" type="checkbox" name="16-1" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-1">
-          1. Intro to Objects</label> </label>
+          <input id="16-1" class="check-box" type="checkbox" name="16-1" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          1. Intro to Objects</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-2">
-          <input id="16-2" class="check-box" type="checkbox" name="16-2" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-2">
-          2. Objects in Code</label> </label>
+          <input id="16-2" class="check-box" type="checkbox" name="16-2" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          2. Objects in Code</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-3">
-          <input id="16-3" class="check-box" type="checkbox" name="16-3" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-3">
-          3. Quiz: Umbrella (7-1)</label> </label>
+          <input id="16-3" class="check-box" type="checkbox" name="16-3" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          3. Quiz: Umbrella (7-1)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-4">
-          <input id="16-4" class="check-box" type="checkbox" name="16-4" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-4">
-          4. Objects</label> </label>
+          <input id="16-4" class="check-box" type="checkbox" name="16-4" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          4. Objects</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-5">
-          <input id="16-5" class="check-box" type="checkbox" name="16-5" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-5">
-          5. Object Literals</label> </label>
+          <input id="16-5" class="check-box" type="checkbox" name="16-5" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          5. Object Literals</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-6">
-          <input id="16-6" class="check-box" type="checkbox" name="16-6" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-6">
-          6. Naming Conventions</label> </label>
+          <input id="16-6" class="check-box" type="checkbox" name="16-6" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          6. Naming Conventions</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-7">
-          <input id="16-7" class="check-box" type="checkbox" name="16-7" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-7">
-          7. Summary of Objects</label> </label>
+          <input id="16-7" class="check-box" type="checkbox" name="16-7" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          7. Summary of Objects</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-8">
-          <input id="16-8" class="check-box" type="checkbox" name="16-8" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-8">
-          8. Quiz: Menu Items (7-2)</label> </label>
+          <input id="16-8" class="check-box" type="checkbox" name="16-8" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          8. Quiz: Menu Items (7-2)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-9">
-          <input id="16-9" class="check-box" type="checkbox" name="16-9" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-9">
-          9. Quiz: Bank Accounts 1 (7-3)</label> </label>
+          <input id="16-9" class="check-box" type="checkbox" name="16-9" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          9. Quiz: Bank Accounts 1 (7-3)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-10">
-          <input id="16-10" class="check-box" type="checkbox" name="16-10" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-10">
-          10. Quiz: Bank Accounts 2 (7-4)</label> </label>
+          <input id="16-10" class="check-box" type="checkbox" name="16-10" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          10. Quiz: Bank Accounts 2 (7-4)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-11">
-          <input id="16-11" class="check-box" type="checkbox" name="16-11" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-11">
-          11. Quiz: Facebook Friends (7-5)</label> </label>
+          <input id="16-11" class="check-box" type="checkbox" name="16-11" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          11. Quiz: Facebook Friends (7-5)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-12">
-          <input id="16-12" class="check-box" type="checkbox" name="16-12" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-12">
-          12. Quiz: Donuts Revisited (7-6)</label> </label>
+          <input id="16-12" class="check-box" type="checkbox" name="16-12" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          12. Quiz: Donuts Revisited (7-6)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="16-13">
-          <input id="16-13" class="check-box" type="checkbox" name="16-13" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="16-13">
-          13. Lesson 7 Summary</label> </label>
+          <input id="16-13" class="check-box" type="checkbox" name="16-13" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          13. Lesson 7 Summary</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label javascript" for="lesson17">
-      <input id="lesson17" class="check-box" type="checkbox" name="lesson17" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="lesson17">
-      Lesson 17 - Next Up</label> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson17List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson17" class="check-box" type="checkbox" name="lesson17" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+      Lesson 17 - Next Up</span> <span class="muted error">Lesson Completed!</span></label><a class="button error" data-button-class="error" data-toggle="lesson17List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson17List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label javascript" for="17-1">
-          <input id="17-1" class="check-box" type="checkbox" name="17-1" data-category-type="javascript"> <span class="indicator"></span> <label class="text-label" for="17-1">
-          1. Onward</label> </label>
+          <input id="17-1" class="check-box" type="checkbox" name="17-1" data-category-type="javascript"> <span class="indicator"></span> <span class="text-label">
+          1. Onward</span> </label>
         </li>
       </ul>
     </li>
@@ -1209,306 +1210,307 @@
             <ul class="course-list">
               <li class="lesson-title">
 <label class="check-box-label jquery" for="lesson18">
-      <input id="lesson18" class="check-box" type="checkbox" name="lesson18" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="lesson18">
-      Lesson 18 - The Basics: The DOM, $, and Selectors</label><span class="muted success">Lesson Completed!</span> </label><a class="button" data-button-class="success" data-toggle="lesson18List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
+      <input id="lesson18" class="check-box" type="checkbox" name="lesson18" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+      Lesson 18 - The Basics: The DOM, $, and Selectors</span><span class="muted success">Lesson Completed!</span> </label><a class="button" data-button-class="success" data-toggle="lesson18List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
       <ul id="lesson18List" class="exercise-list active">
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-1">
-          <input id="18-1" class="check-box" type="checkbox" name="18-1" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-1">
-          1. Course Introduction</label> </label>
+          <input id="18-1" class="check-box" type="checkbox" name="18-1" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          1. Course Introduction</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-2">
-          <input id="18-2" class="check-box" type="checkbox" name="18-2" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-2">
-          2. Why Does jQuery Exist?</label> </label>
+          <input id="18-2" class="check-box" type="checkbox" name="18-2" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          2. Why Does jQuery Exist?</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-3">
-          <input id="18-3" class="check-box" type="checkbox" name="18-3" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-3">
-          3. What is jQuery actually</label> </label>
+          <input id="18-3" class="check-box" type="checkbox" name="18-3" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">>
+          3. What is jQuery actually</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-4">
-          <input id="18-4" class="check-box" type="checkbox" name="18-4" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-4">
-          4. Money, Money, Money (the $)</label> </label>
+          <input id="18-4" class="check-box" type="checkbox" name="18-4" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          4. Money, Money, Money (the $)</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-5">
-          <input id="18-5" class="check-box" type="checkbox" name="18-5" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-5">
-          5. How to Use the $</label> </label>
+          <input id="18-5" class="check-box" type="checkbox" name="18-5" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          5. How to Use the $</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-6">
-          <input id="18-6" class="check-box" type="checkbox" name="18-6" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-6">
-          6. Quiz: DOM Inspiration</label> </label>
+          <input id="18-6" class="check-box" type="checkbox" name="18-6" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          6. Quiz: DOM Inspiration</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-7">
-          <input id="18-7" class="check-box" type="checkbox" name="18-7" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-7">
-          7. How is jQuery Included in a Page?</label> </label>
+          <input id="18-7" class="check-box" type="checkbox" name="18-7" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          7. How is jQuery included in a page?</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-8">
-          <input id="18-8" class="check-box" type="checkbox" name="18-8" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-8">
-          8. Quiz: Select by Tags</label> </label>
+          <input id="18-8" class="check-box" type="checkbox" name="18-8" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          8. Quiz: Select by Tags</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-9">
-          <input id="18-9" class="check-box" type="checkbox" name="18-9" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-9">
-          9. Quiz: Select by Classes Quiz</label> </label>
+          <input id="18-9" class="check-box" type="checkbox" name="18-9" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          9. Quiz: Select by Classes Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-10">
-          <input id="18-10" class="check-box" type="checkbox" name="18-10" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-10">
-          10. Quiz: Select by IDs</label> </label>
+          <input id="18-10" class="check-box" type="checkbox" name="18-10" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          10. Quiz: Select by IDs</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-11">
-          <input id="18-11" class="check-box" type="checkbox" name="18-11" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-11">
-          11. Family Tree Revisited</label> </label>
+          <input id="18-11" class="check-box" type="checkbox" name="18-11" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          11. Family Tree Revisited</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-12">
-          <input id="18-12" class="check-box" type="checkbox" name="18-12" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-12">
-          12. Quiz: Filters Quiz</label> </label>
+          <input id="18-12" class="check-box" type="checkbox" name="18-12" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          12. Quiz: Filters Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="18-13">
-          <input id="18-13" class="check-box" type="checkbox" name="18-13" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="18-13">
-          13. High Five!</label> </label>
+          <input id="18-13" class="check-box" type="checkbox" name="18-13" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          13. High Five!</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label jquery" for="lesson19">
-      <input id="lesson19" class="check-box" type="checkbox" name="lesson19" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="lesson19">
-      Lesson 19 - The Tricks: DOM Manipulation</label> <span class="muted success">Lesson Completed!</span></label><a class="button success" data-button-class="success" data-toggle="lesson19List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson19" class="check-box" type="checkbox" name="lesson19" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+      Lesson 19 - The Tricks: DOM Manipulation</span> <span class="muted success">Lesson Completed!</span></label><a class="button success" data-button-class="success" data-toggle="lesson19List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson19List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-1">
-          <input id="19-1" class="check-box" type="checkbox" name="19-1" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-1">
-          1. jQuery Documentation and You</label> </label>
+          <input id="19-1" class="check-box" type="checkbox" name="19-1" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          1. jQuery Documentation and You</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-2">
-          <input id="19-2" class="check-box" type="checkbox" name="19-2" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-2">
-          2. Quiz: you.toggleClass() Quiz</label> </label>
+          <input id="19-2" class="check-box" type="checkbox" name="19-2" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          2. Quiz: you.toggleClass() Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-3">
-          <input id="19-3" class="check-box" type="checkbox" name="19-3" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-3">
-          3. Toggling Classes Quiz</label> </label>
+          <input id="19-3" class="check-box" type="checkbox" name="19-3" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          3. Toggling Classes Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-4">
-          <input id="19-4" class="check-box" type="checkbox" name="19-4" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-4">
-         4. Quiz: Changing Attributes Quiz</label> </label>
+          <input id="19-4" class="check-box" type="checkbox" name="19-4" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+         4. Quiz: Changing Attributes Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-5">
-          <input id="19-5" class="check-box" type="checkbox" name="19-5" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-5">
-          5. Quiz: Modifying CSS Quiz</label> </label>
+          <input id="19-5" class="check-box" type="checkbox" name="19-5" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          5. Quiz: Modifying CSS Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-6">
-          <input id="19-6" class="check-box" type="checkbox" name="19-6" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-6">
-          6. Pulling HTML and Text</label> </label>
+          <input id="19-6" class="check-box" type="checkbox" name="19-6" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          6. Pulling HTML and Text</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-7">
-          <input id="19-7" class="check-box" type="checkbox" name="19-7" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-7">
-          7. Quiz: Collecting Values Quiz</label> </label>
+          <input id="19-7" class="check-box" type="checkbox" name="19-7" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          7. Quiz: Collecting Values Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-8">
-          <input id="19-8" class="check-box" type="checkbox" name="19-8" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-8">
-          8. Quiz: Removing DOM Elements</label> </label>
+          <input id="19-8" class="check-box" type="checkbox" name="19-8" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          8. Quiz: Removing DOM Elements</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-9">
-          <input id="19-9" class="check-box" type="checkbox" name="19-9" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-9">
-          9. Adding DOM Elements</label> </label>
+          <input id="19-9" class="check-box" type="checkbox" name="19-9" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          9. Adding DOM Elements</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-10">
-          <input id="19-10" class="check-box" type="checkbox" name="19-10" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-10">
-          10. Appending Child Elements</label> </label>
+          <input id="19-10" class="check-box" type="checkbox" name="19-10" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          10. Appending Child Elements</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-11">
-          <input id="19-11" class="check-box" type="checkbox" name="19-11" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-11">
-          11. Quiz: Build a DOM (Family) Tree!</label> </label>
+          <input id="19-11" class="check-box" type="checkbox" name="19-11" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          11. Quiz: Build a DOM (Family) Tree!</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-12">
-          <input id="19-12" class="check-box" type="checkbox" name="19-12" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-12">
-          12. Quiz: Iterating with Each Quiz</label> </label>
+          <input id="19-12" class="check-box" type="checkbox" name="19-12" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          12. Quiz: Iterating with Each Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-13">
-          <input id="19-13" class="check-box" type="checkbox" name="19-13" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-13">
-          13. Quiz: Why use jQuery? Quiz</label> </label>
+          <input id="19-13" class="check-box" type="checkbox" name="19-13" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          13. Quiz: Why use jQuery? Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-14">
-          <input id="19-14" class="check-box" type="checkbox" name="19-14" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-14">
-          14. Outro</label> </label>
+          <input id="19-14" class="check-box" type="checkbox" name="19-14" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          14. Outro</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="19-15">
-          <input id="19-15" class="check-box" type="checkbox" name="19-15" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="19-15">
-          15. $(function)</label> </label>
+          <input id="19-15" class="check-box" type="checkbox" name="19-15" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          15. $(function)</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label jquery" for="lesson20">
-      <input id="lesson20" class="check-box" type="checkbox" name="lesson20" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="lesson20">
-     Lesson 20 - Event Listeners with jQuery</label> <span class="muted success">Lesson Completed!</span></label><a class="button success" data-button-class="success" data-toggle="lesson20List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson20" class="check-box" type="checkbox" name="lesson20" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+     Lesson 20 - Event Listeners with jQuery</span> <span class="muted success">Lesson Completed!</span></label><a class="button success" data-button-class="success" data-toggle="lesson20List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson20List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-1">
-          <input id="20-1" class="check-box" type="checkbox" name="20-1" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-1">
-          1. Intro to Event Listening with jQuery</label> </label>
+          <input id="20-1" class="check-box" type="checkbox" name="20-1" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          1. Intro to Event Listening with jQuery</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-2">
-          <input id="20-2" class="check-box" type="checkbox" name="20-2" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-2">
-          2. What are Browser Events?</label> </label>
+          <input id="20-2" class="check-box" type="checkbox" name="20-2" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          2. What are Browser Events?</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-3">
-          <input id="20-3" class="check-box" type="checkbox" name="20-3" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-3">
-         3. Quiz: monitorEvents Quiz</label> </label>
+          <input id="20-3" class="check-box" type="checkbox" name="20-3" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+         3. Quiz: monitorEvents Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-4">
-          <input id="20-4" class="check-box" type="checkbox" name="20-4" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-4">
-          4. Anatomy of a jQuery Event Listener</label> </label>
+          <input id="20-4" class="check-box" type="checkbox" name="20-4" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          4. Anatomy of a jQuery Event Listener</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-5">
-          <input id="20-5" class="check-box" type="checkbox" name="20-5" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-5">
-          5. Quiz: jQuery Event Listener Order Quiz</label> </label>
+          <input id="20-5" class="check-box" type="checkbox" name="20-5" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          5. Quiz: jQuery Event Listener Order Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-6">
-          <input id="20-6" class="check-box" type="checkbox" name="20-6" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-6">
-          6. Quiz: jQuery Event Listener</label> </label>
+          <input id="20-6" class="check-box" type="checkbox" name="20-6" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          6. Quiz: jQuery Event Listener</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-7">
-          <input id="20-7" class="check-box" type="checkbox" name="20-7" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-7">
-          7. The Event Object</label> </label>
+          <input id="20-7" class="check-box" type="checkbox" name="20-7" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          7. The Event Object</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-8">
-          <input id="20-8" class="check-box" type="checkbox" name="20-8" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-8">
-          8. Quiz: The Convenience Method</label> </label>
+          <input id="20-8" class="check-box" type="checkbox" name="20-8" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          8. Quiz: The Convenience Method</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-9">
-          <input id="20-9" class="check-box" type="checkbox" name="20-9" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-9">
-          9. Quiz: Convenience Methods Quiz</label> </label>
+          <input id="20-9" class="check-box" type="checkbox" name="20-9" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          9. Quiz: Convenience Methods Quiz</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-10">
-          <input id="20-10" class="check-box" type="checkbox" name="20-10" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-10">
-          10. jQuery's multifunctional .on method</label> </label>
+          <input id="20-10" class="check-box" type="checkbox" name="20-10" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          10. jQuery's multifunctional .on method</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-11">
-          <input id="20-11" class="check-box" type="checkbox" name="20-11" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-11">
-          11. Event Delegation</label> </label>
+          <input id="20-11" class="check-box" type="checkbox" name="20-11" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          11. Event Delegation</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label jquery" for="20-12">
-          <input id="20-12" class="check-box" type="checkbox" name="20-12" data-category-type="jquery"> <span class="indicator"></span> <label class="text-label" for="20-12">
-          12. Outro</label> </label>
+          <input id="20-12" class="check-box" type="checkbox" name="20-12" data-category-type="jquery"> <span class="indicator"></span> <span class="text-label">
+          12. Outro</span> </label>
         </li>
       </ul>
     </li>
             </ul>
           </div>
-          <div class="panels" id="panel-projects"data-style-ref="secondary">
+          <div class="panels" id="panel-projects" data-style-ref="secondary">
             <ul class="course-list">
               <li class="lesson-title">
                 <label class="check-box-label project" for="lesson4">
-                  <input id="lesson4" class="check-box" type="checkbox" name="lesson4" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="lesson4">
-                  Lesson 4 - Project: Mockup to Article</label><span class="muted secondary">Lesson Completed!</span> </label><a class="button" data-button-class="secondary" data-toggle="lesson4List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
+                  <input id="lesson4" class="check-box" type="checkbox" name="lesson4" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+                  Lesson 4 - Project: Mockup to Article</span><span class="muted secondary">Lesson Completed!</span> </label><a class="button" data-button-class="secondary" data-toggle="lesson4List" data-trigger="collapse"><i class="fas fa-minus"></i></a>
                 <ul id="lesson4List" class="exercise-list active">
                   <li class="lesson-exercise">
                     <label class="check-box-label project" for="4-1">
-                      <input id="4-1" class="check-box" type="checkbox" name="4-1" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="4-1">
-                      1. Mockup to Article Overview</label> </label>
+                      <input id="4-1" class="check-box" type="checkbox" name="4-1" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+                      1. Mockup to Article Overview</span> </label>
                   </li>
                   <li class="lesson-exercise">
                     <label class="check-box-label project" for="4-2">
-                      <input id="4-2" class="check-box" type="checkbox" name="4-2" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="4-2">
-                      2. Mockup to Article</label> </label>
+                      <input id="4-2" class="check-box" type="checkbox" name="4-2" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+                      2. Mockup to Article</span> </label>
                   </li>
                 </ul>
               </li>
               <li class="lesson-title">
 <label class="check-box-label project" for="lesson8">
-      <input id="lesson8" class="check-box" type="checkbox" name="lesson8" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="lesson8">
-      Lesson 8 - Project: Animal Trading Cards</label> <span class="muted secondary">Lesson Completed!</span></label><a class="button secondary" data-button-class="secondary" data-toggle="lesson8List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson8" class="check-box" type="checkbox" name="lesson8" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+      Lesson 8 - Project: Animal Trading Cards</span> <span class="muted secondary">Lesson Completed!</span></label><a class="button secondary" data-button-class="secondary" data-toggle="lesson8List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson8List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label project" for="8-1">
-          <input id="8-1" class="check-box" type="checkbox" name="8-1" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="8-1">
-          1. Animal Trading Cards Overview</label> </label>
+          <input id="8-1" class="check-box" type="checkbox" name="8-1" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+          1. Animal Trading Cards Overview</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label project" for="8-2">
-          <input id="8-2" class="check-box" type="checkbox" name="8-2" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="8-2">
-          2. Animal Trading Cards</label> </label>
+          <input id="8-2" class="check-box" type="checkbox" name="8-2" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+          2. Animal Trading Cards</span> </label>
         </li>
       </ul>
     </li>
               <li class="lesson-title">
 <label class="check-box-label project" for="lesson21">
-      <input id="lesson21" class="check-box" type="checkbox" name="lesson21" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="lesson21">
-      Lesson 21 - Project: Pixel Art Maker</label> <span class="muted secondary">Lesson Completed!</span></label><a class="button secondary" data-button-class="secondary" data-toggle="lesson21List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson21" class="check-box" type="checkbox" name="lesson21" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+      Lesson 21 - Project: Pixel Art Maker</span> <span class="muted secondary">Lesson Completed!</span></label><a class="button secondary" data-button-class="secondary" data-toggle="lesson21List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson21List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label project" for="21-1">
-          <input id="21-1" class="check-box" type="checkbox" name="21-1" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="21-1">
-          1. Project Overview</label> </label>
+          <input id="21-1" class="check-box" type="checkbox" name="21-1" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+          1. Project Overview</span> </label>
         </li>
         <li class="lesson-exercise">
 <label class="check-box-label project" for="21-2">
-          <input id="21-2" class="check-box" type="checkbox" name="21-2" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="21-2">
-          2. Instructions</label> </label>
+          <input id="21-2" class="check-box" type="checkbox" name="21-2" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+          2. Instructions</span> </label>
         </li>
       </ul>
     </li>
     <li class="lesson-title">
 <label class="check-box-label project" for="lesson22">
-      <input id="lesson22" class="check-box" type="checkbox" name="lesson22" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="lesson22">
-      Lesson 22 - Challenge Course Wrap Up</label> <span class="muted secondary">Lesson Completed!</span></label><a class="button secondary" data-button-class="secondary" data-toggle="lesson22List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
+      <input id="lesson22" class="check-box" type="checkbox" name="lesson22" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+      Lesson 22 - Challenge Course Wrap Up</span> <span class="muted secondary">Lesson Completed!</span></label><a class="button secondary" data-button-class="secondary" data-toggle="lesson22List" data-trigger="collapse"><i class="fas fa-plus"></i></a>
       <ul id="lesson22List" class="exercise-list">
         <li class="lesson-exercise">
 <label class="check-box-label project" for="22-1">
-          <input id="22-1" class="check-box" type="checkbox" name="22-1" data-category-type="project"> <span class="indicator"></span> <label class="text-label" for="22-1">
-          1. Great Work!</label> </label>
+          <input id="22-1" class="check-box" type="checkbox" name="22-1" data-category-type="project"> <span class="indicator"></span> <span class="text-label">
+          1. Great Work!</span> </label>
         </li>
       </ul>
     </li>
 
             </ul>
+
           </div>
         </div>
       </section>
     </main>
     <footer class='footer display-flex flex-justify-content-between flex-align-items-center padding-x-5'>
-      <p class='copyright'>&copy Study Buddies inc.</p>
+      <p class='copyright'>&copy;Study Buddies</p>
       <div class="foot-note display-flex flex-align-items-center">
         <div class="text-left">
           <p lang="es">Hecho con mucho amor</p>
           <p lang="en">Made with lots of love</p>
-          <p lang="fr">fait avec beaucoup d'amour</p>
-          <p lang="hi">बहुत प्यार के साथ किया</p>
+          <p lang="fr">Fait avec beaucoup d'amour</p>
+          <p lang="hi">प्यार से बनाया</p>
         </div>
         <div class="icon">
           <i class="fas fa-heart"></i>
@@ -1516,10 +1518,10 @@
 
         </div>
         <div class="text-right">
-          <p lang="de">mit viel Liebe gemacht</p>
-          <p lang="hw">hanaʻia me ke aloha nui</p>
-          <p lang="ru">сделано с большой любовью</p>
-          <p lang="pa">ਬਹੁਤ ਪਿਆਰ ਨਾਲ ਕੀਤਾ</p>
+          <p lang="de">Mit viel Liebe gemacht</p>
+          <p lang="hwc">Hanaʻia me ke aloha nui</p>
+          <p lang="ru">Cделано с большой любовью</p>
+          <p lang="pa">ਪਿਆਰ ਨਾਲ ਬਣਾਇਆ</p>
         </div>
       </div>
       <ul class="social-links">
@@ -1528,6 +1530,32 @@
         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
       </ul>
     </footer>
+    <div class="modal display-flex flex-justify-content-around" id="changer-modal">
+      <div class="modal-container">
+        <form>
+        <div class="modal-header padding-y-2 padding-x-2">
+          <figure>
+            <img src="https://s26.postimg.org/cw5bs6g55/user.jpg" alt="(User Name) Avatar">
+          </figure>
+        </div>
+        <div class="modal-body padding-x-5 padding-y-4">
+          <label for="user-name-changer">Change Your Name</label>
+          <input type="text" name="user-name-changer" id="user-name-changer" title="Please enter your name" placeholder="Your Name" required>
+          <label for="user-email-changer">Change Your Email</label>
+          <input type="email" name="user-email-changer" id="user-email-changer" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Please enter a valid email address" placeholder="example@domain.com" required>
+          <label for="theme-selector">Select Your Theme</label>
+          <select name="theme-selector" id="theme-selector">
+            <option value="darker" selected>Darker Theme</option>
+            <option value="lighter">Lighter Theme</option>
+          </select>
+        </div>
+        <div class="modal-footer padding-y-3">
+          <button class="primary" id="changer-accept">Accept Changes</button>
+          <button class="error" id="changer-discard">Discard Changes</button>
+        </div>
+        </form>
+      </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="study-buddies-spa.js"></script>
   </body>

@@ -1,0 +1,10 @@
+Initial Basic Test Script
+1. Check login screen comes up at initial launch
+2. User clicks the button without filling details. System shows proper validation message
+3. User fills the detail and page with checklist shows up.
+4. Verify that view shows up with Primary colors
+5. System remembers last UI state - 
+   a. Check top level lesson box and refresh.
+   b. Uncheck top level and check just one sub-section. Hit Refresh.
+   c. Check top level lesson box and now uncheck one of the section. Hit Refresh.
+6. <Update with more functionality>
