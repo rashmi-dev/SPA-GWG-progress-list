@@ -80,7 +80,7 @@ SBP.UI = {
                 }
             });
             // Update Progress Bars
-            updateBars();
+            initializeBars();
         }
         catch (ex) {
             console.log(ex.message);
@@ -384,6 +384,45 @@ const $jqueryBar = $("[data-panel-ref='jquery']");
 const $projectBar = $("[data-panel-ref='projects']");
 
 
+// set achieved progress of all bars on page load
+function initializeBars() {
+
+	const progress = getProgress();
+
+  const bars = [
+    $overallBar,
+    $htmlBar,
+    $cssBar,
+    $javascriptBar,
+    $jqueryBar,
+    $projectBar
+	];
+
+  for (let i=0; i<bars.length; i++) {
+		
+		let bar = bars[i];
+		let barCategory = getBarCategory(bar);
+		let percent = Math.round(getPercent(bar,progress));
+		let width = 0; // bar width increment
+		let time = setInterval(fillBar, 10); // set animation speed
+
+		function fillBar() {
+			if (width === percent) {
+				clearInterval(time); // stop interval
+			}
+			else {
+				width++;
+				bar.css("width", width + "%"); // increase bar
+				bar.text(width + "%");
+			}  
+		}
+
+		const spanID = getSpanID(barCategory);
+		$(spanID).text(progress[barCategory].checkedBoxes + "/" + progress[barCategory].totalBoxes + " Completed" ).css("display","block");
+  }
+}
+
+
 function getProgress() {
 
   return progress = {
@@ -452,59 +491,34 @@ function getSpanID(barCategory) {
 }
 
 
+// update progress of category bar
 function updateBar(bar) {
-
-	
 
   const progress = getProgress();
   const barCategory = getBarCategory(bar);
-	const percent = getPercent(bar,progress);
+	const percent = Math.round(getPercent(bar,progress));
 
-
-  let width = 0; // bar width increment
-  let time = setInterval(fillBar, 0); // set animation speed
-
-  // initial bar size
-  // bar.css("width", width + "%") ;
-  // bar.text(percent.toFixed() + "%");
+	let width = Math.round((bar.width() / bar.parent().width()) * 100); // bar width increment
+	let time = setInterval(fillBar, 0); // set animation speed
 
   function fillBar() {
-    if (width >= percent) {
+    if (width === percent) {
       clearInterval(time); // stop interval
-    }
-    else {
+		}
+    else if (width < percent) {
       width++;
 			bar.css("width", width + "%"); // increase bar
-			
+			bar.text(width + "%");
 		}  
-		
-  }
-	bar.text(percent.toFixed() + "%");
-	// console.log(bar,bar[0].style.width);
-	console.log(bar.css("width"), bar.width());
-	
+    else if (width > percent) {
+      width--;
+			bar.css("width", width + "%"); // increase bar
+			bar.text(width + "%");
+		}  
+	}
 
-  
   const spanID = getSpanID(barCategory);
   $(spanID).text(progress[barCategory].checkedBoxes + "/" + progress[barCategory].totalBoxes + " Completed" ).css("display","block");
-}
-
-
-// initial page load
-function updateBars() {
-
-  const bars = [
-    $overallBar,
-    $htmlBar,
-    $cssBar,
-    $javascriptBar,
-    $jqueryBar,
-    $projectBar
-  ]
-
-  for (let i=0; i<bars.length; i++) {
-    updateBar(bars[i]);
-  }
 }
 
 
@@ -542,7 +556,9 @@ $("input[type=checkbox]").change(function() {
   const category = getCheckboxCategory($(this))
   const bar = getBar(category);
  
-  updateBar(bar);
+  $.when(updateBar(bar)).done(function() {
+		updateBar(bar);
+	});
   updateBar($overallBar)
 });
 
