@@ -9,6 +9,9 @@ a {
 a:hover {
   color: #02b7e9;
 }
+p {
+  padding-bottom: 0.75rem;
+}
 /* Pading and Margin */
 .padding-0 {
   padding: 0;
@@ -665,6 +668,10 @@ header {
   background-color: #0280a4;
   min-height: 90px;
 }
+.header-text{
+  color: #fff;
+}
+
 main, .tab-panel .panels, .login-area  {
   flex: 1;
   overflow: auto;
@@ -694,6 +701,7 @@ label[for=progress-bar] {
 }
 .muted {
   color: #999;
+  display: none;
 }
 .tab-panel {
   height: 100%;
@@ -708,14 +716,17 @@ footer {
   line-height: 1.1em;
   font-size: 11px;
   text-rendering: optimizeLegibility;
-  text-transform: capitalize;
 }
+
 .foot-note .text-left {
   text-align: right;
 }
 .text-right, .text-left {
   color: white;
   width: 200px;
+}
+.foot-note p {
+  padding: 0;
 }
 .foot-note .icon {
   position: relative;
@@ -736,6 +747,7 @@ footer {
   font-size: 45px;
   top: -22px;
 }
+
 .social-links {
   list-style: none;
   font-size: 22px;
@@ -745,19 +757,21 @@ footer {
   margin-left: .5rem;
 }
 .social-links a {
-  color: inherit;
+  color: #fff;
 }
 .social-links a:hover {
-  color: white;
+  color: #000;
   cursor: pointer;
 }
+
+.copyright {
+  color: #fff;
+}
 .copyright:hover {
-  color: white;
+  color: #000;
   cursor: default;
 }
-.copyright {
-  color: #333;
-}
+
 .text-left:hover, .text-right:hover {
   color: #333;
   font-size: 12px;
@@ -1028,7 +1042,6 @@ input[type=text]:focus, input[type=email]:focus {
 .login-area a {
   text-align: center;
   padding: 10px;
-  text-transform: capitalize;
 }
 .login-area {
   display: none;
@@ -1046,7 +1059,6 @@ input[type=text]:focus, input[type=email]:focus {
 }
 
 /*Light Theme Colors---------------------------------*/
-
 .lighter .tabs-nav a  {
  padding: 0.75rem;
  display: inline-block;
@@ -1081,7 +1093,7 @@ input[type=text]:focus, input[type=email]:focus {
   background-color: #96C1E4;
   border-color: #A1CFF4;
   box-shadow: inset 0 0 2px white;
- color: #333;
+ color:black;
 }
 .lighter .active[data-class-ref="primary"]:hover  {
   background-color: #A1CFF4;
@@ -1097,7 +1109,7 @@ input[type=text]:focus, input[type=email]:focus {
   background-color: #FFBBB1;
   border-color: #D49D95;
   box-shadow: inset 0 0 2px  white;
-  color: #333;
+  color:black;
 }
 .lighter .active[data-class-ref="secondary"]:hover  {
   background-color: #FFC2BB;
@@ -1113,7 +1125,7 @@ input[type=text]:focus, input[type=email]:focus {
   background-color: #AE9DEF;
   border-color: #9A8BD6;
   box-shadow: inset 0 0 2px white;
-  color: #333;
+  color:black;
 }
 .lighter .active[data-class-ref="error"]:hover  {
   background-color: #B8A6FF;
@@ -1129,7 +1141,7 @@ input[type=text]:focus, input[type=email]:focus {
   background-color: #F7DE68;
   border-color: #F4EB9B;
   box-shadow: inset 0 0 2px white;
-  color: #333;
+  color:black;
 }
 .lighter .active[data-class-ref="waiting"]:hover  {
   background-color: #FFE473;
@@ -1145,7 +1157,7 @@ input[type=text]:focus, input[type=email]:focus {
   background-color: #B5DCA3;
   border-color: #7D9876;
   box-shadow: inset 0 0 2px  white;
-  color: #333;
+  color:black;
 }
 .lighter .active[data-class-ref="success"]:hover  {
   background-color: #B8E3AB;
@@ -1159,7 +1171,7 @@ input[type=text]:focus, input[type=email]:focus {
 }
 .lighter header  {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
- background-color: #0280a4;
+ background-color: #69B0DE;
   min-height: 90px;
 }
 .lighter .user-avatar img,  {
@@ -1284,6 +1296,7 @@ input[type=text]:focus, input[type=email]:focus {
   width: 100vw;
   background: rgba(51, 51, 51, 0.5);
   padding-top: 120px;
+  z-index: 10000;
 }
 .modal.active * {
   display: block;
@@ -1307,6 +1320,7 @@ input[type=text]:focus, input[type=email]:focus {
   background-color: #02b7e9;
   text-align: center;
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  font-size: 1.2rem;
 }
 .modal-footer {
   text-align: center;

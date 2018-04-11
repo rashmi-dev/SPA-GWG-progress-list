@@ -195,6 +195,14 @@ $(function () {
 
 /*Angel & Steve*/
 $(function () {
+  try{
+
+      SBP.UI.bindPage();
+      SBP.Events.bindEvents();
+  }
+  catch (ex) {
+      console.log(ex.message);
+  }
   $(".tabs-nav li:first-child a").click();
   $(".lesson-title").each(function() {
     if($(this).find(".exercise-list input").length === $(this).find(".exercise-list input:checked").length) {
@@ -206,14 +214,22 @@ $(function () {
     }
   });
   $(".login-area form").addClass("no-display");
-  if(sessionStorage.getItem("isLoggedIn")==="yes"){
+  if(localStorage.getItem("isLoggedIn")==="yes"){
             $(".login-area form").addClass("no-display");
             $(".study-alt").addClass("no-display");
             $("div.login-area").removeClass("display-flex");
-            $(".user-info .user-name").html(sessionStorage.getItem("username"));
-            $(".user-info .user-email").html(sessionStorage.getItem("email"));
+            $(".user-info .user-name").html(localStorage.getItem("username"));
+            $(".user-info .user-email").html(localStorage.getItem("email"));
             $("main").addClass("display-flex");
             $(".user-avatar, .logo").removeClass("no-display");
+            if(localStorage.getItem("theme") === "lighter") {
+              $("body").addClass("lighter");
+              $(".tabs-nav li a.active").click();
+            } else {
+              $("body").removeClass("lighter");
+              $(".tabs-nav li a.active").click();
+            }
+            $("#theme-selector").val(localStorage.getItem("theme"));
 
     }
     else{
@@ -224,14 +240,7 @@ $(function () {
             $(".user-avatar, .logo").addClass("no-display");
 
     }
-    try{
 
-        SBP.UI.bindPage();
-        SBP.Events.bindEvents();
-    }
-    catch (ex) {
-        console.log(ex.message);
-    }
 });
 });
 
@@ -306,15 +315,16 @@ $(document).on("click", function() {
 //on click event session start
 $(".login-area form").submit(function(e){
     e.preventDefault();
-    sessionStorage.setItem("username",$("#user-name").val());
-    sessionStorage.setItem("email",$("#user-email").val());
+    localStorage.setItem("username",$("#user-name").val());
+    localStorage.setItem("email",$("#user-email").val());
+    localStorage.setItem("theme","darker");
     //For page refresh storing the page name
-    sessionStorage.setItem("isLoggedIn","yes");
+    localStorage.setItem("isLoggedIn","yes");
 
     $(".login-area form").addClass("no-display");//added by rashmi
     $(".study-alt").addClass("no-display");
-    $(".user-info .user-name").html(sessionStorage.getItem("username"));
-    $(".user-info .user-email").html(sessionStorage.getItem("email"));
+    $(".user-info .user-name").html(localStorage.getItem("username"));
+    $(".user-info .user-email").html(localStorage.getItem("email"));
     $(".login-area").removeClass("display-flex");
     $("main").addClass("display-flex");
     $(".user-avatar, .logo").removeClass("no-display");
@@ -327,10 +337,10 @@ $(".dropdown li:last-child").on("click", function(){
     $("main").removeClass("display-flex");
     $(".user-avatar, .logo").addClass("no-display");
 
-    sessionStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("isLoggedIn");
     //remove the user info on logout
-    sessionStorage.removeItem("name");
-    sessionStorage.removeItem("email");
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
 
 });
 
@@ -343,14 +353,17 @@ $("[data-toggle=modal]").on("click", function(){
 });
 $("#changer-accept").on("click", function(e) {
   e.preventDefault();
-  sessionStorage.setItem("username",$("#user-name-changer").val());
-  sessionStorage.setItem("email",$("#user-email-changer").val());
+  localStorage.setItem("username",$("#user-name-changer").val());
+  localStorage.setItem("email",$("#user-email-changer").val());
+  localStorage.setItem("theme",$("#theme-selector").val());
   $(".user-info .user-name").html($("#user-name-changer").val());
   $(".user-info .user-email").html($("#user-email-changer").val());
   if($("#theme-selector").val() === "lighter") {
     $("body").addClass("lighter");
+    $(".tabs-nav li a.active").click();
   } else {
     $("body").removeClass("lighter");
+    $(".tabs-nav li a.active").click();
   }
   $(".modal").removeClass("active");
 });
@@ -371,70 +384,8 @@ const $jqueryBar = $("[data-panel-ref='jquery']");
 const $projectBar = $("[data-panel-ref='projects']");
 
 
-// update progress when checkbox status changes
-$("input[type=checkbox]").change(function() {
-  const category = getCheckboxCategory($(this))
-  const bar = $("[data-panel-ref='"+category+"']");
-  updateBar(bar);
-  updateBar($overallBar)
-});
-
-
-// return sanitized category values
-function getCheckboxCategory(checkbox) {
-  console.log(checkbox.attr("data-category-type"));
-  if (checkbox.attr("data-category-type") ===  "project") {
-    return "projects"
-  }
-  else {
-    return checkbox.attr("data-category-type")
-  }
-}
-
-
-// initial page load
-function updateBars() {
-  const bars = [
-    $overallBar,
-    $htmlBar,
-    $cssBar,
-    $javascriptBar,
-    $jqueryBar,
-    $projectBar
-  ]
-
-  for (let i=0; i<bars.length; i++) {
-    updateBar(bars[i]);
-  }
-}
-updateBars();
-
-
-function updateBar(bar) {
-  const progress = getProgress();
-  let width = 0; // bar progress
-  const time = setInterval(fillBar, 0); // set animation speed
-  const percent = getPercent(bar,progress); // get category percent
-
-  // initial bar size
-  bar.css("width", width + "%") ;
-  bar.text(percent.toFixed(1) + "%");
-
-  function fillBar() {
-    if (width >= percent) {
-      clearInterval(time); // stop interval
-    }
-    else {
-      width++;
-      bar.css("width", width + "%") ; // increase bar
-      bar.text(percent.toFixed(1) + "%")
-    }
-  }
-}
-
-
-// return user progress properties
 function getProgress() {
+
   return progress = {
     overall: {
       "checkedBoxes": $(".exercise-list input:checked").length,
@@ -464,8 +415,20 @@ function getProgress() {
 }
 
 
+function getBarCategory(bar) {
+
+  if (bar[0].attributes[0].nodeValue === "progress default") { // rename
+    return "overall";
+  }
+  else {
+    return bar[0].attributes[0].nodeValue;
+  }
+}
+
+
 function getPercent(bar,progress) {
-  if (bar.attr("class") === "progress default") {
+
+  if (bar.attr("class") === "progress default") { // overall
     return (progress.overall.checkedBoxes / progress.overall.totalBoxes) * 100;
   }
   else {
@@ -473,3 +436,123 @@ function getPercent(bar,progress) {
     return (progress[category].checkedBoxes / progress[category].totalBoxes) * 100;
   }
 }
+
+
+function getSpanID(barCategory) {
+
+  if (barCategory === "overall") { // remove s
+    return "#progress-span";
+  }
+  else if (barCategory === "projects") { // remove s
+    return "#project-span";
+  }
+  else {
+    return "#" + barCategory + "-span";
+  }
+}
+
+
+function updateBar(bar) {
+
+  const progress = getProgress();
+  const barCategory = getBarCategory(bar);
+  const percent = getPercent(bar,progress);
+
+  let width = 0; // bar width increment
+  let time = setInterval(fillBar, 0); // set animation speed
+
+  // initial bar size
+  bar.css("width", width + "%") ;
+  bar.text(percent.toFixed(1) + "%");
+
+  function fillBar() {
+    if (width >= percent) {
+      clearInterval(time); // stop interval
+    }
+    else {
+      width++;
+      bar.css("width", width + "%"); // increase bar
+    }  
+  }
+  bar.text(percent.toFixed(1) + "%");
+  
+  const spanID = getSpanID(barCategory);
+  $(spanID).text(progress[barCategory].checkedBoxes + "/" + progress[barCategory].totalBoxes + " Completed" ).css("display","block");
+}
+
+
+// initial page load
+function updateBars() {
+
+  const bars = [
+    $overallBar,
+    $htmlBar,
+    $cssBar,
+    $javascriptBar,
+    $jqueryBar,
+    $projectBar
+  ]
+
+  for (let i=0; i<bars.length; i++) {
+    updateBar(bars[i]);
+  }
+}
+
+
+function getCheckboxCategory(checkbox) {
+
+  if (checkbox.attr("data-category-type") ===  "project") { // remove s
+    return "projects"
+  }
+  else {
+    return checkbox.attr("data-category-type")
+  }
+}
+
+
+function getBar(category) {
+
+  switch(category){
+    case "html":
+      return $htmlBar;
+    case "css":
+      return $cssBar;
+    case "javascript":
+      return $javascriptBar;
+    case "jquery":
+      return $jqueryBar;
+    case "projects":
+      return $projectBar;
+  }
+}
+
+
+// update progress bars on checkbox change
+$("input[type=checkbox]").change(function() {
+
+  const category = getCheckboxCategory($(this))
+  const bar = getBar(category);
+ 
+  updateBar(bar);
+  updateBar($overallBar)
+});
+
+
+//Testing the info button//
+$("<i class='fas fa-info-circle'></i>").prependTo(".user-avatar");
+$(".fa-info-circle").css({
+  'position': 'absolute',
+  'color':'white',
+  'list-style':'none',
+  'font-size': '25px',
+  'margin-left': '75px',
+  'margin-top': '-4px',
+  'display': 'flex',
+  'cursor':'pointer'});
+
+$(".fa-info-circle").click(function() {
+  $("#info-modal").addClass("active");
+});
+$("[data-close=modal]").on("click", function() {
+  $(this).parents(".modal").removeClass("active");
+});
