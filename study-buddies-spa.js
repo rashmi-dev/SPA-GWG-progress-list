@@ -265,11 +265,15 @@ $("input[id*=lesson]").on("click", function(){
 		// console.log("test",parent.find(":checkbox").is(":checked"))
 
     parent.find(":checkbox").prop( "checked", true );
-    parent.find("span").addClass("active");
+		parent.find("span").addClass("active");
+		updateBar(getBar(getCheckboxCategory($(this))));
+		updateBar($overallBar)
   }
   else {
     parent.find(":checkbox").prop( "checked", false );
-    parent.find("span").removeClass("active");
+		parent.find("span").removeClass("active");
+		updateBar(getBar(getCheckboxCategory($(this))));
+		updateBar($overallBar)
   } });
 
 $("input[id*=-]").on("click", function(){
@@ -277,11 +281,17 @@ $("input[id*=-]").on("click", function(){
   let parent = $(this).parents(".exercise-list");
   let lessonNumber = $(this).attr("id").split("-");
   if(parent.find(":checked").length === parent.find("[type=checkbox]").length) {
+		
     $("#lesson" + lessonNumber[0]).prop("checked", true);
-    $(this).parents(".lesson-title").find("span").addClass("active");
+		$(this).parents(".lesson-title").find("span").addClass("active");
+		updateBar(getBar(getCheckboxCategory($(this))));
+		updateBar($overallBar);
+		
   } else {
     $("#lesson" + lessonNumber[0]).prop("checked", false);
-    $(this).parents(".lesson-title").find("span").removeClass("active");
+		$(this).parents(".lesson-title").find("span").removeClass("active");
+		updateBar(getBar(getCheckboxCategory($(this))));
+		updateBar($overallBar);
   }
 
 });
@@ -430,14 +440,6 @@ function initializeBars() {
 
 function getProgress() {
 	
-	$(".exercise-list input:checked").each(function() {
-		if (($(this).is(":checked"))) {
-			console.log("false",$(this))
-		}
-		
-	})
-	console.log($(".exercise-list input:checked").length)
-
   return progress = {
     overall: {
       "checkedBoxes": $(".exercise-list input:checked").length,
@@ -492,7 +494,7 @@ function getPercent(bar,progress) {
 
 function getSpanID(barCategory) {
 
-  if (barCategory === "overall") { // remove s
+  if (barCategory === "overall" ) { // remove s
     return "#progress-span";
   }
   else if (barCategory === "projects") { // remove s
@@ -511,7 +513,7 @@ function updateBar(bar) {
 	const percent = Math.round(getPercent(bar,progress));
 
 	let width = Math.round((bar.width() / bar.parent().width()) * 100); // bar width increment
-	let time = setInterval(fillBar, 0); // set animation speed
+	let time = setInterval(fillBar, 1); // set animation speed
 
   function fillBar() {
     if (width === percent) {
@@ -530,7 +532,8 @@ function updateBar(bar) {
 	}
 
   const spanID = getSpanID(barCategory);
-  $(spanID).text(progress[barCategory].checkedBoxes + "/" + progress[barCategory].totalBoxes + " Completed" ).css("display","block");
+	$(spanID).text(progress[barCategory].checkedBoxes + "/" + progress[barCategory].totalBoxes + " Completed" ).css("display","block");
+	
 }
 
 
@@ -560,21 +563,6 @@ function getBar(category) {
       return $projectBar;
   }
 }
-
-
-// update progress bars on checkbox change
-$("input[type=checkbox]").change(function() {
-
-	// console.log($(this), $(this).parent().siblings("ul").children())
-
-
-  const category = getCheckboxCategory($(this))
-  const bar = getBar(category);
- 
-  
-	updateBar(bar);
-  // updateBar($overallBar)
-});
 
 
 //Testing the info button//
