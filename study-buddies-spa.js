@@ -261,22 +261,32 @@ $("input[id*=lesson]").on("click", function(){
   let parent = $(this).parents(".lesson-title");
   if(parent.find(":checkbox").prop("checked")) {
     parent.find(":checkbox").prop( "checked", true );
-    parent.find("span").addClass("active");
+		parent.find("span").addClass("active");
+		updateBar(getBar(getCheckboxCategory($(this))));
+		updateBar($overallBar)
   }
   else {
     parent.find(":checkbox").prop( "checked", false );
-    parent.find("span").removeClass("active");
+		parent.find("span").removeClass("active");
+		updateBar(getBar(getCheckboxCategory($(this))));
+		updateBar($overallBar)
   } });
 
 $("input[id*=-]").on("click", function(){
   let parent = $(this).parents(".exercise-list");
   let lessonNumber = $(this).attr("id").split("-");
   if(parent.find(":checked").length === parent.find("[type=checkbox]").length) {
+		
     $("#lesson" + lessonNumber[0]).prop("checked", true);
-    $(this).parents(".lesson-title").find("span").addClass("active");
+		$(this).parents(".lesson-title").find("span").addClass("active");
+		updateBar(getBar(getCheckboxCategory($(this))));
+		updateBar($overallBar);
+		
   } else {
     $("#lesson" + lessonNumber[0]).prop("checked", false);
-    $(this).parents(".lesson-title").find("span").removeClass("active");
+		$(this).parents(".lesson-title").find("span").removeClass("active");
+		updateBar(getBar(getCheckboxCategory($(this))));
+		updateBar($overallBar);
   }
 
 });
@@ -384,6 +394,34 @@ const $jqueryBar = $("[data-panel-ref='jquery']");
 const $projectBar = $("[data-panel-ref='projects']");
 
 
+function getCheckboxCategory(checkbox) {
+
+  if (checkbox.attr("data-category-type") ===  "project") {
+    return "projects"
+  }
+  else {
+    return checkbox.attr("data-category-type")
+  }
+}
+
+
+function getBar(category) {
+
+  switch(category){
+    case "html":
+      return $htmlBar;
+    case "css":
+      return $cssBar;
+    case "javascript":
+      return $javascriptBar;
+    case "jquery":
+      return $jqueryBar;
+    case "projects":
+      return $projectBar;
+  }
+}
+
+
 function getProgress() {
 
   return progress = {
@@ -417,11 +455,13 @@ function getProgress() {
 
 function getBarCategory(bar) {
 
-  if (bar[0].attributes[0].nodeValue === "progress default") { // rename
+	// console.log('bar',bar.attr("data-panel-ref"));
+
+	if (bar[0].attributes[0].nodeValue === "progress default" || bar[0].className === 'progress default') { // rename
     return "overall";
   }
   else {
-    return bar[0].attributes[0].nodeValue;
+    return bar.attr("data-panel-ref");
   }
 }
 
@@ -440,7 +480,7 @@ function getPercent(bar,progress) {
 
 function getSpanID(barCategory) {
 
-  if (barCategory === "overall") { // remove s
+  if (barCategory === "overall" ) { // remove s
     return "#progress-span";
   }
   else if (barCategory === "projects") { // remove s
@@ -456,7 +496,7 @@ function updateBar(bar) {
 
   const progress = getProgress();
   const barCategory = getBarCategory(bar);
-  const percent = getPercent(bar,progress);
+	const percent = getPercent(bar,progress);
 
   let width = 0; // bar width increment
   let time = setInterval(fillBar, 0); // set animation speed
@@ -474,10 +514,11 @@ function updateBar(bar) {
       bar.css("width", width + "%"); // increase bar
     }  
   }
-  bar.text(percent.toFixed(1) + "%");
-  
+	bar.text(percent.toFixed(1) + "%");
+	
   const spanID = getSpanID(barCategory);
-  $(spanID).text(progress[barCategory].checkedBoxes + "/" + progress[barCategory].totalBoxes + " Completed" ).css("display","block");
+	$(spanID).text(progress[barCategory].checkedBoxes + "/" + progress[barCategory].totalBoxes + " Completed" ).css("display","block");
+	
 }
 
 
@@ -498,44 +539,6 @@ function updateBars() {
   }
 }
 
-
-function getCheckboxCategory(checkbox) {
-
-  if (checkbox.attr("data-category-type") ===  "project") { // remove s
-    return "projects"
-  }
-  else {
-    return checkbox.attr("data-category-type")
-  }
-}
-
-
-function getBar(category) {
-
-  switch(category){
-    case "html":
-      return $htmlBar;
-    case "css":
-      return $cssBar;
-    case "javascript":
-      return $javascriptBar;
-    case "jquery":
-      return $jqueryBar;
-    case "projects":
-      return $projectBar;
-  }
-}
-
-
-// update progress bars on checkbox change
-$("input[type=checkbox]").change(function() {
-
-  const category = getCheckboxCategory($(this))
-  const bar = getBar(category);
- 
-  updateBar(bar);
-  updateBar($overallBar)
-});
 
 
 //Testing the info button//
