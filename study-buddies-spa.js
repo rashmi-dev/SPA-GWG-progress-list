@@ -258,8 +258,12 @@ $(".tabs-nav a").on("click",function(){
 
 
 $("input[id*=lesson]").on("click", function(){
-  let parent = $(this).parents(".lesson-title");
+
+	let parent = $(this).parents(".lesson-title");
+
   if(parent.find(":checkbox").prop("checked")) {
+		// console.log("test",parent.find(":checkbox").is(":checked"))
+
     parent.find(":checkbox").prop( "checked", true );
     parent.find("span").addClass("active");
   }
@@ -269,6 +273,7 @@ $("input[id*=lesson]").on("click", function(){
   } });
 
 $("input[id*=-]").on("click", function(){
+	
   let parent = $(this).parents(".exercise-list");
   let lessonNumber = $(this).attr("id").split("-");
   if(parent.find(":checked").length === parent.find("[type=checkbox]").length) {
@@ -424,6 +429,14 @@ function initializeBars() {
 
 
 function getProgress() {
+	
+	$(".exercise-list input:checked").each(function() {
+		if (($(this).is(":checked"))) {
+			console.log("false",$(this))
+		}
+		
+	})
+	console.log($(".exercise-list input:checked").length)
 
   return progress = {
     overall: {
@@ -456,11 +469,11 @@ function getProgress() {
 
 function getBarCategory(bar) {
 
-  if (bar[0].attributes[0].nodeValue === "progress default") { // rename
+  if (bar.attr("class") === "progress default") { // rename
     return "overall";
   }
   else {
-    return bar[0].attributes[0].nodeValue;
+    return bar.data("panelRef");
   }
 }
 
@@ -490,11 +503,10 @@ function getSpanID(barCategory) {
   }
 }
 
-
 // update progress of category bar
 function updateBar(bar) {
 
-  const progress = getProgress();
+	const progress = getProgress();
   const barCategory = getBarCategory(bar);
 	const percent = Math.round(getPercent(bar,progress));
 
@@ -524,7 +536,7 @@ function updateBar(bar) {
 
 function getCheckboxCategory(checkbox) {
 
-  if (checkbox.attr("data-category-type") ===  "project") { // remove s
+  if (checkbox.attr("data-category-type") === "project") { // remove s
     return "projects"
   }
   else {
@@ -553,13 +565,15 @@ function getBar(category) {
 // update progress bars on checkbox change
 $("input[type=checkbox]").change(function() {
 
+	// console.log($(this), $(this).parent().siblings("ul").children())
+
+
   const category = getCheckboxCategory($(this))
   const bar = getBar(category);
  
-  $.when(updateBar(bar)).done(function() {
-		updateBar(bar);
-	});
-  updateBar($overallBar)
+  
+	updateBar(bar);
+  // updateBar($overallBar)
 });
 
 
