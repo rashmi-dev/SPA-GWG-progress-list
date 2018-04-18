@@ -434,7 +434,7 @@ function updateBarText(barCategory, barProgress) {
 }
 
 
-// update progress of category bar
+// change bar to reflect course progress
 function updateBar(bar, barFillSpeed=1) {
 
 	const barCategory = bar.attr('data-panel-ref');
