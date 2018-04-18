@@ -258,40 +258,41 @@ $(".tabs-nav a").on("click",function(){
 
 
 $("input[id*=lesson]").on("click", function(){
-
+	
 	let parent = $(this).parents(".lesson-title");
+	const category = $(this).attr("data-category-type");
+	const bar = $("[data-panel-ref="+category+"]");
+	const overallBar = $("[data-panel-ref='overall']");
 
   if(parent.find(":checkbox").prop("checked")) {
-		// console.log("test",parent.find(":checkbox").is(":checked"))
-
     parent.find(":checkbox").prop( "checked", true );
 		parent.find("span").addClass("active");
-		updateBar(getBar(getCheckboxCategory($(this))));
-		updateBar($overallBar)
-  }
-  else {
+		updateBar(bar);
+		updateBar(overallBar);
+  } else {
     parent.find(":checkbox").prop( "checked", false );
 		parent.find("span").removeClass("active");
-		updateBar(getBar(getCheckboxCategory($(this))));
-		updateBar($overallBar)
+		updateBar(bar);
+		updateBar(overallBar);
   } });
 
 $("input[id*=-]").on("click", function(){
 	
   let parent = $(this).parents(".exercise-list");
-  let lessonNumber = $(this).attr("id").split("-");
+	let lessonNumber = $(this).attr("id").split("-");
+	const category = $(this).attr("data-category-type");
+	const bar = $("[data-panel-ref="+category+"]");
+	const overallBar = $("[data-panel-ref='overall']");
+
   if(parent.find(":checked").length === parent.find("[type=checkbox]").length) {
-		
     $("#lesson" + lessonNumber[0]).prop("checked", true);
 		$(this).parents(".lesson-title").find("span").addClass("active");
-		updateBar(getBar(getCheckboxCategory($(this))));
-		updateBar($overallBar);
-		
+		updateBar(bar);
+		updateBar(overallBar);
   } else {
     $("#lesson" + lessonNumber[0]).prop("checked", false);
-		$(this).parents(".lesson-title").find("span").removeClass("active");
-		updateBar(getBar(getCheckboxCategory($(this))));
-		updateBar($overallBar);
+		updateBar(bar);
+		updateBar(overallBar);
   }
 
 });
@@ -392,124 +393,83 @@ $("#changer-discard").on("click", function(e) {
 
 
 
-function getCheckboxCategory(checkbox) {
-    return checkbox.attr("data-category-type")
-}
+function getBarProgress(barCategory) {
 
-
-function getBar(category) {
-
-  switch(category){
-    case "html":
-      return $htmlBar;
-    case "css":
-      return $cssBar;
-    case "javascript":
-      return $javascriptBar;
-    case "jquery":
-      return $jqueryBar;
-    case "project":
-      return $projectBar;
-  }
-}
-
-
-function getProgress(category) {
-
-	console.log(category)
-
-	if (category === 'overall') {
+	if (barCategory === 'overall') {
 		return {
-			"checkedBoxes": $(".exercise-list input:checked").length,
-			"totalBoxes": $(".exercise-list input").length
+			'checkedBoxes': $('.exercise-list input:checked').length,
+			'totalBoxes': $('.exercise-list input').length
 		};
 	}
 	else {
 		return {
-			"checkedBoxes": $(".exercise-list input[data-category-type="+category+"]:checked").length,
-			"totalBoxes": $(".exercise-list input[data-category-type="+category+"]").length
-		}
+			'checkedBoxes': $('.exercise-list input[data-category-type='+barCategory+']:checked').length,
+			'totalBoxes': $('.exercise-list input[data-category-type='+barCategory+']').length
+		};
 	}
 }
 
 
-function getBarCategory(bar) {
-  return bar.attr("data-panel-ref");
+function getBarPercent(barProgress) {
+
+  return Math.round((barProgress.checkedBoxes / barProgress.totalBoxes) * 100);
 }
 
 
-function getPercent(progress) {
-  return Math.round((progress.checkedBoxes / progress.totalBoxes) * 100);
+function getBarWidth(bar) {
+
+	if (bar.width() === 0) {
+		return 0;
+	}
+	else {
+		return Math.round((bar.width() / bar.parent().width()) * 100); 
+	}
 }
 
 
-function updateBarText(barCategory,progress) {
+function updateBarText(barCategory, barProgress) {
 
-	const spanID = "#" + barCategory + "-span";
-	$(spanID).text(progress.checkedBoxes + "/" + progress.totalBoxes + " Completed" ).css("display","block");
+	const spanID = '#' + barCategory + '-span';
+	$(spanID).text(barProgress.checkedBoxes + '/' + barProgress.totalBoxes + ' Completed' ).css('display','block');
 }
 
 
 // update progress of category bar
-function updateBar(bar, barSpeed=1) {
+function updateBar(bar, barFillSpeed=1) {
 
-	const barCategory = getBarCategory(bar);
-	const progress = getProgress(barCategory);
-	const percent = getPercent(progress);
-	
-	let width;
-
-	// assign starting width
-	if (bar.width() === 0) {
-		width = 0;
-	}
-	else {
-		width = Math.round((bar.width() / bar.parent().width()) * 100); 
-	}
-	
-	let time = setInterval(fillBar, barSpeed); // set animation speed
+	const barCategory = bar.attr('data-panel-ref');
+	const barProgress = getBarProgress(barCategory);
+	const barPercent = getBarPercent(barProgress);
+	let barWidth = getBarWidth(bar); // initial width
+	let time = setInterval(fillBar, barFillSpeed); // control bar animation
 
   function fillBar() {
-    if (width === percent) {
+	
+    if (barWidth === barPercent) {
       clearInterval(time); // stop interval
 		}
-    else if (width <= percent) { // increase bar
-      width++;
-			bar.css("width", width + "%"); 
-			bar.text(width + "%");
+    else if (barWidth <= barPercent) { // increase bar
+      barWidth++;
+			bar.css('width', barWidth + '%'); 
+			bar.text(barWidth + '%');
 		}  
-		else if (width >= percent) { // decrease bar
-			width--;
-			bar.css("width", width + "%"); 
-			bar.text(width + "%");
+		else if (barWidth >= barPercent) { // decrease bar
+			barWidth--;
+			bar.css('width', barWidth + '%'); 
+			bar.text(barWidth + '%');
 		}  
 	}
-	updateBarText(barCategory,progress);
+	updateBarText(barCategory, barProgress);
 }
-
-const $overallBar = $(".default");
-const $htmlBar = $("[data-panel-ref='html']");
-const $cssBar = $("[data-panel-ref='css']");
-const $javascriptBar = $("[data-panel-ref='javascript']");
-const $jqueryBar = $("[data-panel-ref='jquery']");
-const $projectBar = $("[data-panel-ref='project']");
 
 
 function initializeBars() {
 
-  const bars = [
-    $overallBar,
-    $htmlBar,
-    $cssBar,
-    $javascriptBar,
-    $jqueryBar,
-    $projectBar
-	];
-	const barSpeed = 10;
+	const barFillSpeed = 10;
 
-  for (let i=0; i<bars.length; i++) {
-		updateBar(bars[i], barSpeed);
-  }
+	$('[data-panel-ref]').each(function(i,obj) {
+		updateBar($(this), barFillSpeed);
+	})
 }
 
 
