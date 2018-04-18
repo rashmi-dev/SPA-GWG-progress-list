@@ -441,12 +441,7 @@ function getProgress(category) {
 
 function getBarCategory(bar) {
 
-	console.log(bar.attr('data-panel-ref'))
-
-  if (bar.attr("class") === "progress default") { // rename
-    return "overall";
-  }
-  else if (bar.attr("data-panel-ref") === 'projects') { // rename
+  if (bar.attr("data-panel-ref") === 'projects') { // rename
     return "project";
   }
   else {
@@ -456,8 +451,6 @@ function getBarCategory(bar) {
 
 
 function getPercent(bar,progress) {
-
-	console.log(progress);
 
 	if (bar.attr("class") === "progress default") { // overall
     return (progress.checkedBoxes / progress.totalBoxes) * 100;
@@ -478,10 +471,7 @@ function updateBarText(barCategory,progress) {
 
 function getSpanID(barCategory) {
 
-  if (barCategory === "overall" ) { // remove s
-    return "#progress-span";
-  }
-  else if (barCategory === "projects") { // remove s
+  if (barCategory === "projects") { // remove s
     return "#project-span";
   }
   else {
@@ -493,12 +483,9 @@ function getSpanID(barCategory) {
 // update progress of category bar
 function updateBar(bar, barSpeed=1) {
 
-	console.log(bar);
 	const barCategory = getBarCategory(bar);
 	const progress = getProgress(barCategory);
-	console.log('progress',progress);
 	const percent = Math.round(getPercent(bar,progress));
-	console.log('percent',percent);
 	
 	let width;
 
