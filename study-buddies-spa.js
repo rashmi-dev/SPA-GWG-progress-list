@@ -393,13 +393,7 @@ $("#changer-discard").on("click", function(e) {
 
 
 function getCheckboxCategory(checkbox) {
-
-  if (checkbox.attr("data-category-type") === "project") { // remove s
-    return "projects"
-  }
-  else {
     return checkbox.attr("data-category-type")
-  }
 }
 
 
@@ -414,7 +408,7 @@ function getBar(category) {
       return $javascriptBar;
     case "jquery":
       return $jqueryBar;
-    case "projects":
+    case "project":
       return $projectBar;
   }
 }
@@ -440,43 +434,19 @@ function getProgress(category) {
 
 
 function getBarCategory(bar) {
-
-  if (bar.attr("data-panel-ref") === 'projects') { // rename
-    return "project";
-  }
-  else {
-    return bar.attr("data-panel-ref");
-  }
+  return bar.attr("data-panel-ref");
 }
 
 
-function getPercent(bar,progress) {
-
-	if (bar.attr("class") === "progress default") { // overall
-    return (progress.checkedBoxes / progress.totalBoxes) * 100;
-  }
-  else {
-    const category = bar.attr("data-panel-ref");
-    return (progress.checkedBoxes / progress.totalBoxes) * 100;
-  }
+function getPercent(progress) {
+  return Math.round((progress.checkedBoxes / progress.totalBoxes) * 100);
 }
 
 
 function updateBarText(barCategory,progress) {
 
-	const spanID = getSpanID(barCategory);
+	const spanID = "#" + barCategory + "-span";
 	$(spanID).text(progress.checkedBoxes + "/" + progress.totalBoxes + " Completed" ).css("display","block");
-}
-
-
-function getSpanID(barCategory) {
-
-  if (barCategory === "projects") { // remove s
-    return "#project-span";
-  }
-  else {
-    return "#" + barCategory + "-span";
-  }
 }
 
 
@@ -485,7 +455,7 @@ function updateBar(bar, barSpeed=1) {
 
 	const barCategory = getBarCategory(bar);
 	const progress = getProgress(barCategory);
-	const percent = Math.round(getPercent(bar,progress));
+	const percent = getPercent(progress);
 	
 	let width;
 
@@ -522,7 +492,7 @@ const $htmlBar = $("[data-panel-ref='html']");
 const $cssBar = $("[data-panel-ref='css']");
 const $javascriptBar = $("[data-panel-ref='javascript']");
 const $jqueryBar = $("[data-panel-ref='jquery']");
-const $projectBar = $("[data-panel-ref='projects']");
+const $projectBar = $("[data-panel-ref='project']");
 
 
 function initializeBars() {
