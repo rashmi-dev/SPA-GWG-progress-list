@@ -448,15 +448,21 @@ function updateBar(bar, barFillSpeed=1) {
     if (barWidth === barPercent) {
       clearInterval(time); // stop interval
 		}
-    else if (barWidth <= barPercent) { // increase bar
-      barWidth++;
+    else if (barWidth < barPercent) { // increase bar
+			barWidth++;
 			bar.css('width', barWidth + '%'); 
 			bar.text(barWidth + '%');
 		}  
-		else if (barWidth >= barPercent) { // decrease bar
+		else if (barWidth > barPercent) { // decrease bar
 			barWidth--;
-			bar.css('width', barWidth + '%'); 
-			bar.text(barWidth + '%');
+			if (barWidth === 0) {
+				bar.css('width', barWidth + '%'); 
+				bar.text('');
+			} 
+			else {
+				bar.css('width', barWidth + '%'); 
+				bar.text(barWidth + '%');
+			}
 		}  
 	}
 	updateBarText(barCategory, barProgress);
