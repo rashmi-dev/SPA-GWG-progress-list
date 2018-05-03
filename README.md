@@ -7,13 +7,13 @@ The features include :-
 3. Dark and light theme.
 4. A login page based on localStorage.
 
-Responsibility: I was responsible for designing the logo and developing the localStorage in the project. 
+**Responsibility**: I was responsible for designing the logo and developing the localStorage in the project. 
 
 The below is the original content description of the group project.
 -Study-Buddy-Project
 A project for "Grow With Google Scholarship 2018 Front-End Web Dev" fellow participants
 
-Project Purposes:
+**Project Purposes:**
 
 *Learn GitHub workspace
 *Learn to work as a team
@@ -22,12 +22,12 @@ Project Purposes:
 *Move on to making a real-life project for a third-party
 *Share our results on Udacity GWG Forum
 
-Project Rules:
+**Project Rules:**
 
 Name your branches that are not for testing, but to be included in the Project, after your nickname. E.g. mine is sophistique-chat
 To be continued (whatever can make us more comfortable here needs to be added to this Readme for future references)
 
-Project Deadline: end of course (so we're able to post our Project on Udacity Forum)
+Project Deadline: end of course (so we're able to post our Project on Udacity Forum) 
 
 
 Current Participants: THIS IS A PUBLIC REPO FOR ALL OUR TEAM TO CHANGE AND CONTRIBUTE TO
