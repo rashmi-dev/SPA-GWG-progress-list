@@ -3,11 +3,11 @@
 -Study-Buddy-Project is a group project by the students of Grow with Google Scholarship Challenge. This project is based on HTML,JavaScript and CSS.
 The features include :-
 1. Lesson Tracker.
-2. Progress bars which record the progress from the lesson based on checbox entries.
+2. Progress bars which updates based on the checkbox values from the lesson tracker.
 3. Dark and light theme.
 4. A login page based on localStorage.
 
-Responsibility: I contributed to designing the logo and developing the localStorage in the project.
+Responsibility: I was responsible for designing the logo and developing the localStorage in the project. 
 
 The below is the original content description of the group project.
 -Study-Buddy-Project
